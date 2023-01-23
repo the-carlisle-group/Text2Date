@@ -1,0 +1,7 @@
+ Text2Date←{
+     ⍝ ⍵ ←→ Char mat of time strings
+     ⍝ ⍺ ←→ Format [Century Window]
+     f w←2↑50,⍨⊆⍺
+     1∊'YY'⍷f:f w ProcessFixed ⍵
+     f w ProcessVariable ⍵
+ }
