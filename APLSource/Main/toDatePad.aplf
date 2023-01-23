@@ -1,0 +1,11 @@
+ toDatePad←{
+     ⍝ Modify format and value for missing leading zeros
+     f m←⍵
+     =/2↑f:⍵
+     ~(↑f)∊'ymd':⍵
+     nf←(↑f),f
+     m←(≢nf)↑[1]{(+/∧\' '=⍵)⌽⍵}m
+     m←{(-+/∧\' '=⌽⍵)⌽⍵}m
+     nm←{(⍴⍵)⍴(⍵=' ')⊖⍵,[-0.1]'0'}m
+     nf nm
+ }

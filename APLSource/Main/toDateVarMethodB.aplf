@@ -1,0 +1,19 @@
+ toDateVarMethodB←{
+     f dw←⍺
+     mn←↓12 3⍴'janfebmaraprmayjunjulaugsepoctnovdec'
+     v←ntbs low ⍵
+     num←{1↓¨'∆'⎕VFI,'∆',⊃⍵}
+     c←⎕D,low ⎕A
+     p←3↑[1]⊃{⍵⊆⍨⍵∊c}¨v
+     y m d←↓⍉p[;⍋⍋f⍳'ymd']
+     vy fy←num y
+     zy←~(~vy)∨(⊃y)∧.=' '
+     ny←zy×dw yearwindow fy
+     nd←⊃×/num d
+     vm fm←num m
+     j←⍸~vm
+     nm←((1+mn⍳3↑¨m[j])@j)fm
+     g←okdatemat ny nm nd
+     n←0 100 100⊥⊃ny nm nd
+     n×g
+ }

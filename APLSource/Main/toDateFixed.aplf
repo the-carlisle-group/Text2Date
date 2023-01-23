@@ -1,0 +1,20 @@
+ toDateFixed←{
+     f dw←⍺
+     f cm←toDatePad f ⍵
+     f cm←toDateMonthText f cm
+     hc←1∊'yyyy'⍷f                  ⍝ Have Century
+     hd←1∊'dd'⍷f                    ⍝ Have Days
+     ye←hc⊃'yy' 'yyyy'              ⍝ Year element
+     e←ye'mm',hd/⊂'dd'              ⍝ Date elements
+     b←e⍷¨⊂f                        ⍝ Locate
+     i←∊(⍸¨b)+⍳¨≢¨e                 ⍝ Indices
+     (⌈/i)≥1+1⊃⍴cm:(≢cm)⍴0          ⍝ Format is too wi
+     m←cm[;i]                       ⍝ Re-order
+     v←toNum m                      ⍝ Convert to numeric
+     v←(~hd)+v×100*~hd              ⍝ Add Days
+     n←0 100 100⊤v                  ⍝ Split into ymd
+     n[0;]←dw yearwindow n[0;]      ⍝
+     g←okdatemat n                  ⍝ is date ok?
+     n←0 100 100⊥n                  ⍝ Combine
+     n×g                            ⍝ Zeros for bad/null etc.
+ }

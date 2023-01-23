@@ -1,0 +1,8 @@
+ toDateVar←{
+     j←~0∊⍵∊⎕D,'/.- '            ⍝ All digits, offical delimeters, or blanks
+     d←↑⍵[0;]~⎕D                 ⍝ Delimiter
+     v←d≠' '                     ⍝ Valid delimiter
+     k←2∧.=+/d=⍵                 ⍝ Exactly two delims, per row
+     v∧j∧k:⍺ toDateVarMethodA ⍵  ⍝ Fast and small
+     ⍺ toDateVarMethodB ⍵        ⍝ Flexible
+ }

@@ -1,0 +1,9 @@
+ yearwindow←{
+     ⍵+(⍵<100)×⊃⍵{100×⍺+⍺⍺<⍵}/0 100⊤⍬⍴⎕TS(-⍣(⍺<100))⍺
+⍝ ⍺ defines the century window start
+⍝   <100 : ⎕ts[0]-⍺ is the start of a floating century window
+⍝   else : ⍺ is the start year of a fixed century window.
+⍝ ⍵ is years some or all of which may be less than 100.
+⍝ ← ⍵ + multiples of 100 that move any years that start
+⍝   out less than 100 into the century window.
+ }

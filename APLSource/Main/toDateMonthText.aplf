@@ -1,0 +1,11 @@
+ toDateMonthText←{
+     ⍝ Replace JAN FEB, ETC  with ' ' 01, ' 02'
+     f cm←⍵
+     b←'mmm'⍷f
+     ~∨/b:⍵
+     sm←12 3⍴'janfebmaraprmayjunjulaugsepoctnovdec'
+     i←(↑⍸b)+⍳3
+     cm[;i]←'O13<>ZI3'⎕FMT 1+sm⍳low cm[;i]
+     f[i]←' mm'
+     f cm
+ }
