@@ -1,0 +1,7 @@
+ IsMethodA←{
+     ⍝ ⍵ ←→ Char mat of time strings
+     b←⎕D∊⍨' ',⍵        ⍝ digit runs
+     r←+/2</b           ⍝ Count the digit runs
+     s←r∧.=⊃r           ⍝ All same
+
+ }

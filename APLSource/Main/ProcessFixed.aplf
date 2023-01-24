@@ -11,7 +11,5 @@
      i←∊(⍸¨b)+⍳¨≢¨e    ⍝ Indices
      m←⍵[;i]           ⍝ Re-order
      v←1⊃⎕VFI,' ',m    ⍝ To numeric
-     s←{⍵-6-⍵}≢e       ⍝ Scale factor
-     d←100 1+.×1 2≥≢e  ⍝ Default months/days factor
-     d+v×s
+     v ScaleAndDefault⍨≢e
  }
