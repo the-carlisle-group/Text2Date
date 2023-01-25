@@ -1,15 +1,13 @@
  ProcessFixed←{
+     ⍝ ⍺ ←→ Fixed width format
      ⍝ ⍵ ←→ Character matrix of time strings
-     ⍝ ⍺ ←→ Fixed width format, Century Window
-     ⍝ ← ←→ Decimal Encoded Type 60 time number
-     f w←⍺
-     c←1∊'YYYY'⍷f      ⍝ Have century
-     y←⊂'Y'⍴⍨2*1+c     ⍝ Year element
-     e←y,2⍴¨'MDhms'    ⍝ The elements
-     b←e⍷¨⊂f           ⍝ Search for elements
-     e b←(1∊¨b)∘/¨e b  ⍝ Elements provided
-     i←∊(⍸¨b)+⍳¨≢¨e    ⍝ Indices
-     m←⍵[;i]           ⍝ Re-order
-     v←1⊃⎕VFI,' ',m    ⍝ To numeric
-     v ScaleAndDefault⍨≢e
+     ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
+     c←1∊'YYYY'⍷⍺           ⍝ Have century
+     y←⊂'Y'⍴⍨2*1+c          ⍝ Year element
+     e←y,2⍴¨'MDhms'         ⍝ The elements
+     b←e⍷¨⊂⍺                ⍝ Search for elements
+     e b←(1∊¨b)∘/¨e b       ⍝ Elements provided
+     i←∊(⍸¨b)+⍳¨≢¨e         ⍝ Indices
+     d←⎕UCS 181             ⍝ Unlikely type 80 delimiter
+     1↓1⊃d ⎕VFI,d,⍵[;i]     ⍝ To numeric
  }

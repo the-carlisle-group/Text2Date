@@ -1,7 +1,8 @@
  Text2Date←{
      ⍝ ⍵ ←→ Char mat of time strings
      ⍝ ⍺ ←→ Format [Century Window]
+     ⍝ ← ←→ ⎕DT time number type 60 or 0 for invalid
      f w←2↑50,⍨⊆⍺
-     1∊'YY'⍷f:f w ProcessFixed ⍵
-     f w ProcessVariable ⍵
+     k←+/'YMDhms'∊f
+     Validate w AddCentury k Default k Scale f Process ⍵
  }

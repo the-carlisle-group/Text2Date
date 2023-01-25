@@ -1,0 +1,5 @@
+ Default←{
+     ⍝ ⍺ ←→ Number of elements
+     ⍝ ⍵ ←→ Int
+     ⍵+100 1+.×1 2≥⍺
+ }

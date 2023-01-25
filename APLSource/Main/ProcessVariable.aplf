@@ -1,16 +1,15 @@
  ProcessVariable←{
-     f w←⍺
+     ⍝ ⍺ ←→ Variable width format
+     ⍝ ⍵ ←→ Character matrix of time strings
+     ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
      m←' ',⍵                   ⍝ Pad
      b←m∊⎕D                    ⍝ digit runs
      r←+/2</b                  ⍝ Count the digit runs
-     k←≢f                      ⍝ Number of desired elements
+     k←≢⍺                      ⍝ Number of desired elements
      n←⊃r                      ⍝ Number of actual elements
      r∨.≠n:⍺ ∇ r Pad ⍵         ⍝ Not all same, try again
      v←,m                      ⍝ Ravel
      v[⍸~,b]←' '               ⍝ Blank out all delims
      p←⍉(⌽n,≢m)⍴1⊃⎕VFI v       ⍝ Convert to numeric matrix
-     q←p[⍋⍋f⍳k↑'YMDhms';]      ⍝ Sort time stamps from year down to sec
-     q[0;]←w yearwindow q[0;]  ⍝ Add century if needed
-     g←1⍝ okdatemat q          ⍝ Must handle 1 to 6 rows
-     g×k ScaleAndDefault 100⊥q ⍝ Scale and default
+     100⊥p[⍋⍋f⍳k↑'YMDhms';]    ⍝ Order
  }
