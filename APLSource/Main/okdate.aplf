@@ -1,4 +1,0 @@
- okdate←{
-     b←okdatemat 0 100 100⊤,⍵     ⍝ Split year,month,day
-     (⍴⍵)⍴b∨⍵=0                   ⍝ Null is ok
- }

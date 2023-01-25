@@ -1,9 +1,0 @@
- okdatemat←{
-     y m d←{2=⍴⍴⍵:↓⍵ ⋄ ⍵}⍵
-     b←(y>1752)∧y<4000                   ⍝ Good year: 1752<y<4000
-     b←b∧(m≥1)∧m≤12                      ⍝ Good Month
-     dm←31 28 31 30 31 30 31 31 30 31 30 31
-     b←b∧(d>0)∧d≤dm[11⌊0⌈m-1]            ⍝ Good Day
-     b←b∨(d=29)∧(m=2)∧##.DateTimeFunctions.LeapYear y ⍝ Leap year
-     b
- }

@@ -11,5 +11,5 @@
      v←,m                      ⍝ Ravel
      v[⍸~,b]←' '               ⍝ Blank out all delims
      p←⍉(⌽n,≢m)⍴1⊃⎕VFI v       ⍝ Convert to numeric matrix
-     100⊥p[⍋⍋f⍳k↑'YMDhms';]    ⍝ Order
+     100⊥p[⍋⍋⍺⍳k↑'YMDhms';]    ⍝ Order
  }

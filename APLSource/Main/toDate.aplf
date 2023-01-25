@@ -1,9 +1,0 @@
- toDate←{
-     f dw←⍺
-     ∨/1∊¨'yy' 'mm'⍷¨⊂f:⍺ toDateFixed ⍵
-     ∧/'ymd'∊f:⍺ toDateVar ⍵
-     ∧/'ym'∊f:(f,'d')dw toDateVar(⍵,'/'),'1'
-     dtf←##.DateTimeFunctions
-     'serial'≡f:dtf.SerialToDate+dtf.ExcelDate 0⌊toNum ⍵
-     ##.Framework.SigErr 35
- }
