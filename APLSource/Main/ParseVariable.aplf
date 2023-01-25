@@ -1,0 +1,15 @@
+ ParseVariable←{
+     ⍝ ⍺ ←→ Variable width format
+     ⍝ ⍵ ←→ Character matrix of time strings
+     ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
+     m←' ',⍵                   ⍝ Pad
+     b←m∊⎕D                    ⍝ digit runs
+     r←+/2</b                  ⍝ Count the digit runs
+     k←≢⍺                      ⍝ Number of desired elements
+     n←⊃r                      ⍝ Number of actual elements
+     r∨.≠n:⍺ ∇ r Pad ⍵         ⍝ Not all same, try again
+     v←,m                      ⍝ Ravel
+     v[⍸~,b]←' '               ⍝ Blank out all delims
+     p←⍉(⌽n,≢m)⍴1⊃⎕VFI v       ⍝ Convert to numeric matrix
+     100⊥p[⍋⍋f⍳k↑'YMDhms';]    ⍝ Order
+ }

@@ -4,5 +4,5 @@
      ⍝ ← ←→ ⎕DT time number type 60 or 0 for invalid
      f w←2↑50,⍨⊆⍺
      k←+/'YMDhms'∊f
-     Validate w AddCentury k Default k Scale f Process ⍵
+     Validate w AddCentury k Default k Scale f Parse ⍵
  }
