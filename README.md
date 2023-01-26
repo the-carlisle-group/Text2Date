@@ -22,7 +22,7 @@ For example:
 ## Time Strings
 Dyalog v18 introduced `⎕DT` and defines the terms date-time, which may be represented as a time number, a timestamp, or military time zone character.
 Here we add the term 'time string' to the lexicon as yet another way to represent a date-time. A time string is a simple character vector that contains
-sufficient information to reasonably convert it to a time number. For example:
+sufficient information to reasonably convert it to a time number:
 
 ~~~
 1/1/99
@@ -31,8 +31,8 @@ sufficient information to reasonably convert it to a time number. For example:
 2024-02-28 23:59:01
 ~~~
 
-In conjunction with `⎕DT`, Dyalog introduced `1200⌶` "Format Date-time" which can produce a time string given a formtting pattern.
-Note that this formatting function can produce all sorts of strings that are **not** time strings. For example:
+In conjunction with `⎕DT`, Dyalog introduced `1200⌶` "Format Date-time" which can produce a time string given a formatting pattern.
+Note that this formatting function can produce all sorts of strings that are **not** time strings:
 
 ~~~
 Jan 1
@@ -89,4 +89,7 @@ For example:
       'MDY' 2000 Text2Date 'DOB: 7/24/64' 'DOB: 12/4/78' 'DOB: 6/28/02' 
 20640724 20781204 20020628
 ~~~
+
+# Further Reading
+Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https:/toolofthought.com) blog.
 
