@@ -1,5 +1,5 @@
 # Text2Date
-The Text2Date function converts time strings to a time number:
+The Text2Date function converts time strings to time numbers:
 
 ~~~
      R←Y [Z] Text2Date X
@@ -45,13 +45,16 @@ Text2Date uses a modified version of the `1200⌶` formatting pattern.
 Text2Date formally divides time strings and their associated formatting patterns into two categories "fixed" and "variable".
 Variable formats must be delimited, fixed formats may or may not be delimited. (There is one exception to this, noted below)
 
-A fixed width pattern may contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
-must be ordered and spaced appropriatly to line up with the input. For example:
+A fixed width pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
+must be ordered and spaced appropriatly to line up with the input. All other characters or sequences are ingorned. For example:
 
-A variable width pattern may contain only the single letters Y M D h m s ordered appropriately.
-There is no need to specify the delimiters. For example:
+A variable width pattern should contain only the single letters Y M D h m s ordered appropriately. Any additional characters
+are ignored. There is no need to specify the delimiters. For example:
 
 A valid formatting pattern (and time string) must contain all elements representing units larger than its smallest element.
 For example, if a pattern contains days, it must contain years and months.
 
-## Century Windows
+## Leading Variable Elements in Undelimited Fixed Width Patterns
+Undelimited fixed-width patterns may have a leading variable length element. For example:
+
+## Century Window
