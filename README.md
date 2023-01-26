@@ -91,5 +91,5 @@ For example:
 ~~~
 
 # Further Reading
-Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https:/toolofthought.com) blog.
+Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https://toolofthought.com) blog.
 
