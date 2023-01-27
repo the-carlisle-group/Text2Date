@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.0                    
+# Text2Date Release 0.0.1                    
+1. Add systems vars to single function dist
+
+# Text2Date Release 0.0.0 2023-01-27 10:53:34
 1. Make single function for distribution
 2. Handle undelimited fixed with leading variable elements
 3. Update README.md
