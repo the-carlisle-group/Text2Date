@@ -2,7 +2,7 @@
      c←##.AcreConfig
      f←c.DistFolder
      v←c.Version  ⍝ Add version! or UNVERSIONED
-     n←BuildSingleFunction''
+     n←BuildSingleFunction v
      p←f,'ReleaseArtifacts/',n,'.aplf'
      (⊂⎕NR n)⎕NPUT p 1
  }
