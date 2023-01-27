@@ -1,0 +1,8 @@
+ Build←{
+     c←##.AcreConfig
+     f←c.DistFolder
+     v←c.Version  ⍝ Add version! or UNVERSIONED
+     n←BuildSingleFunction''
+     p←f,'ReleaseArtifacts/',n,'.aplf'
+     (⊂⎕NR n)⎕NPUT p 1
+ }

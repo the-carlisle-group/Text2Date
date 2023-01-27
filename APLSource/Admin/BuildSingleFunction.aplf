@@ -1,0 +1,10 @@
+ BuildSingleFunction←{
+     s←##.Main
+     f←'Text2Date'
+     n←s.⎕NL ¯3
+     c←⊃,/s.⎕NR¨n~⊂f
+     r←c,4↓s.⎕NR f
+     r←{⍵/⍨∧\'⍝'≠⍵}¨r
+     r←(∨/¨' '≠r)/r
+     ⎕FX r,⍨4↑s.⎕NR f
+ }
