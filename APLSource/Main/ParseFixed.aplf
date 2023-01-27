@@ -8,6 +8,5 @@
      b←e⍷¨⊂⍺                ⍝ Search for elements
      e b←(1∊¨b)∘/¨e b       ⍝ Elements provided
      i←∊(⍸¨b)+⍳¨≢¨e         ⍝ Indices
-     d←⎕UCS 181             ⍝ Unlikely type 80 delimiter
-     1↓1⊃d ⎕VFI,d,⍵[;i]     ⍝ To numeric
+     ToNum ⍵[;i]            ⍝ To numeric
  }

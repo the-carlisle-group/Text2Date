@@ -1,0 +1,29 @@
+ TestSuite1←{
+     f←##.Main.Text2Date
+     r←'MM/DD/YY'f'12/31/99' '99/99/99' '01/01/23'
+     r≢19991231 0 20230101:1
+     r←'MDY'f'12/31/99' '99/99/99' '01/01/23'
+     r≢19991231 0 20230101:1
+     r←'MDY'f'12/31/99' '99/99/99' '01/01/23'
+     r≢19991231 0 20230101:1
+     r←'MDYhms'f'1/1/2020 11:59:59' '12/31/99 23:15:30'
+     r≢20200101.115959 19991231.23153:1
+     r←'YMD' 50 f'99/1/1' '23/01/01'
+     r≢19990101 20230101:1
+     r←'YMD' 10 f'99/1/1' '23/01/01' '09/01/01'
+     r≢20990101 20230101 21090101:1
+
+
+     ⍝ Fixed with leading variable, no delimiters allowed
+     ⍝ Fixed number of permustations?
+     ⍝ 'MDDYYYY' 1011999 12011999
+     ⍝ 'DMMYYYY'
+     ⍝ 'D'
+     ⍝  Easier to convert to numeric first? Or right just z fill?
+     ⍝ If NO delimters,
+     ⍝ AND IF leading single Y M or D, that is first two chars are NOT the same
+     ⍝ BUT everything else is at least 2
+     ⍝ then convert to num split, reorder and combine
+
+     0
+ }

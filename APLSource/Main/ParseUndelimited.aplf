@@ -1,0 +1,6 @@
+ ParseUndelimited←{
+     c←1∊'YYYY'⍷⍺
+     r←0 100 100*1+c∧'Y'=∪⍺
+     m←r⊤ToNum ⍵
+     100⊥m[⍋⍋⍺⍳'YMD';]
+ }

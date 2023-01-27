@@ -1,0 +1,4 @@
+ ToNum←{
+     d←⎕UCS 181             ⍝ Unlikely type 80 delimiter
+     1⊃d ⎕VFI 1↓,d,⍵        ⍝ To numeric
+ }
