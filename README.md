@@ -70,6 +70,13 @@ For example, if a pattern contains days, it must contain years and months.
 ## Leading Variable Elements in Undelimited Fixed Width Patterns
 Undelimited fixed-width patterns may have a leading variable length element. For example:
 
+~~~
+      'MDDYY' Text2Date '43022' '123199'
+20220430 19991231
+      'YMMDD' Text2Date '21231' '991231'
+20021231 19991231
+~~~
+
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
 A sliding century window is specified as an integer from 1 (0?) to 99, indicating the number of years from the current
