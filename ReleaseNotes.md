@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.1                    
+# Text2Date Release 0.0.2                    
+1. Add version, etc., to single function dist
+
+# Text2Date Release 0.0.1 2023-01-27 11:09:28
 1. Add systems vars to single function dist
 
 # Text2Date Release 0.0.0 2023-01-27 10:53:34
