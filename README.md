@@ -9,7 +9,7 @@ The Text2Date function converts time strings to time numbers:
 ~~~
 
 X is a vector of vectors or a simple character matrix, each element or each row a time string.
-Z is a formatting pattern. Z is an optional fixed century or sliding century window. 
+Y is a formatting pattern. Z is an optional fixed century or sliding century window. 
 R a type 60 time number or 0 for an invalid conversion.
 
 For example:
@@ -49,15 +49,16 @@ Text2Date formally divides time strings and their associated formatting patterns
 Variable formats must be delimited, fixed formats may or may not be delimited. (There is one exception to this, noted below)
 
 A fixed width pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
-must be ordered and spaced appropriately to line up with the input. All other characters or sequences are ingorned. For example:
+must be ordered and spaced appropriately to line up with the input. All other characters or sequences are ignored. For example:
 
 ~~~
       '.....MM-DD-YY' Text2Date 'DOB: 07/24/10' 'DOB: 12/04/02'
 20100724 20021204
 ~~~
 
-A variable width pattern should contain only the single letters Y M D h m s ordered appropriately. Any additional characters
-are ignored. There is no need to specify the delimiters. For example:
+A variable width pattern should contain only the following sequences: Y, M, MMM, MMMM, D, h, m, and s. The elements
+must be ordered appropriately. Any additional characters
+are ignored. There is no need to specify the delimiters or space out the elements. For example:
 
 ~~~
       'MDYhm' Text2Date 'Party: 12/31/22 23:59' 'Hangover: 1/1/23 9:03'
@@ -76,6 +77,8 @@ Undelimited fixed-width patterns may have a leading variable length element. For
       'YMMDD' Text2Date '21231' '991231'
 20021231 19991231
 ~~~
+
+The sequences MMM is not permitted in an undelimited fixed width pattern with a leading variable element.
 
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
