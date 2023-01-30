@@ -2,8 +2,8 @@
      ⍝ ⍺ ←→ Variable width format
      ⍝ ⍵ ←→ Character matrix of time strings
      ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
+     m←' ',⍺ VariableMMM ⍵     ⍝ Convert Jan, et.c Pad
      f←∪⍺∩'YMDhms'             ⍝ Strip any delims and redundant elements
-     m←' ',⍵                   ⍝ Pad
      b←m∊⎕D                    ⍝ digit runs
      r←+/2</b                  ⍝ Count the digit runs
      k←≢f                      ⍝ Number of desired elements
@@ -11,6 +11,5 @@
      r∨.≠n:⍺ ∇ r Pad ⍵         ⍝ Not all same, try again
      v←,m                      ⍝ Ravel
      v[⍸~,b]←' '               ⍝ Blank out all delims
-     p←⍉(⌽n,≢m)⍴1⊃⎕VFI v       ⍝ Convert to numeric matrix
-     100⊥p[⍋⍋f⍳k↑'YMDhms';]    ⍝ Order
+     ⍉(⌽n,≢m)⍴1⊃⎕VFI v         ⍝ Convert to numeric matrix
  }

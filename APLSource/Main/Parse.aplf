@@ -2,8 +2,6 @@
      ⍝ ⍵ ←→ Character matrix of time strings
      ⍝ ⍺ ←→ Fixed width format
      ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
-     y m←1∊¨'YY' 'MM'⍷¨⊂⍺
-     (y∨m)∧∧/⍺∊'YMD':⍺ ParseUndelimited ⍵
-     y:⍺ ParseFixed ⍵
-     ⍺ ParseVariable ⍵
+     IsVariable ⍺:⍺ ParseVariable ⍵
+     ⍺ ParseFixed ⍵
  }

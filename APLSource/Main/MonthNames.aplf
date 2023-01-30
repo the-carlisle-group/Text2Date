@@ -1,0 +1,3 @@
+ MonthNames←{
+     12 3⍴'janfebmaraprmayjunjulaugsepoctnovdec'
+ }

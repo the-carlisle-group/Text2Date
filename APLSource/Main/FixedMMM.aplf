@@ -1,0 +1,10 @@
+ FixedMMM←{
+     b←'MMM'⍷⍺
+     ~1∊b:⍺ ⍵
+     i←⍸b
+     f←' '@i⊢⍺
+     m←⍵
+     n←MonthNames''
+     m[;i+⍳3]←'ZI3'⎕FMT 1+n⍳⎕C m[;i+⍳3]
+     f m
+ }

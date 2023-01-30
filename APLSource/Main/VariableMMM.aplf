@@ -1,0 +1,9 @@
+ VariableMMM←{
+     ~1∊'MMM'⍷⍺:⍵
+     n←↓MonthNames''
+     v←⎕C,⍵
+     b←n⍷¨⊂v
+     j←{⍵,⍵+1}∊⍸¨b
+     v[j]←,⍉'I2'⎕FMT(+/¨b)/1+⍳12
+     v⍴⍨⍴⍵
+ }
