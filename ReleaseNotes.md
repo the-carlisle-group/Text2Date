@@ -1,4 +1,10 @@
-# Text2Date Release 0.0.2                    
+# Text2Date Release 0.0.3                    
+1. Minor cleanup
+2. Update README.md
+3. Fix isue #1, and some refactoring
+4. Start tests
+
+# Text2Date Release 0.0.2 2023-01-27 12:46:42
 1. Add version, etc., to single function dist
 
 # Text2Date Release 0.0.1 2023-01-27 11:09:28
