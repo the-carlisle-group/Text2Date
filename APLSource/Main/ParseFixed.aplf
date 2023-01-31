@@ -1,7 +1,7 @@
  ParseFixed←{
      ⍝ ⍺ ←→ Fixed width format
      ⍝ ⍵ ←→ Character matrix of time strings
-     ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
+     ⍝ ← ←→ Time matrix
      f m←⍺ FixedMMM ⍵
      e←'YMDhms'
      c←1∊'YYYY'⍷f

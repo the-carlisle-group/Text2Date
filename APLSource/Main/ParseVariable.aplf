@@ -1,7 +1,7 @@
  ParseVariable←{
      ⍝ ⍺ ←→ Variable width format
      ⍝ ⍵ ←→ Character matrix of time strings
-     ⍝ ← ←→ (Partial) decimal encoded Type 61 time number
+     ⍝ ← ←→ Time matrix
      m←' ',⍺ VariableMMM ⍵     ⍝ Convert Jan, et.c Pad
      f←∪⍺∩'YMDhms'             ⍝ Strip any delims and redundant elements
      b←m∊⎕D                    ⍝ digit runs

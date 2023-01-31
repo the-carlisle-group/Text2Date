@@ -1,5 +1,8 @@
  Decode←{
+     ⍝ ⍺ ←→ Format
+     ⍝ ⍵ ←→ Time matrix
+     ⍝ ← ←→ (Partially) decimal encoded ⎕DT type 61
      1=⍴⍴⍵:⍵
-     k←+/'YMDhms'∊⍺
-     100⊥⍵[⍋⍋⍺⍳k↑'YMDhms';]
+     e←'YMDhms'
+     100⊥⍵[⍋e⍳∪⍺∩e;]
  }

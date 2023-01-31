@@ -1,5 +1,5 @@
  Scale←{
      ⍝ ⍺ ←→ Number of elements
-     ⍝ ⍵ ←→ Int
+     ⍝ ⍵ ←→
      ⍵÷10*⍺-6-⍺
  }
