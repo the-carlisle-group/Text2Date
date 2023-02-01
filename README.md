@@ -101,6 +101,11 @@ For example:
 20640724 20781204 20020628
 ~~~
 
+## Distribution
+
+Text2Date is a Dado project containing, as is typical of a project, set of functions in a namespace, which may be included as a dependency in the normal way.
+However, the releases also contain a single function **Text2Date.aplf** which may be copy/pasted into a workspace or project.  
+
 ## Further Reading
 Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https://toolofthought.com) blog.
 
