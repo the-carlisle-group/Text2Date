@@ -78,14 +78,15 @@ Undelimited fixed-width patterns may have a leading variable length element. For
 20021231 19991231
 ~~~
 
-The sequences MMM is not permitted in an undelimited fixed width pattern with a leading variable element.
+The sequence MMM is not permitted in an undelimited fixed width pattern with a leading variable element.
 
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
-A sliding century window is specified as an integer from 1 (0?) to 99, indicating the number of years from the current
-year that the window starts.
-A fixed century is specified as a 4 digit integer e.g., 1900, 2000, 2100, etc.
-The default is 50. 
+If the century window is 1000 or greater, it is interpreted as a fixed century, typically specified as 1900 or 2000.
+Otherwise, the century window is an integer usually from 0 to 99 (it defaults to 50), indicating the number of years preceeding the current
+year that the floating window starts. Thus 50, the default, indicates that dates should be intepreted to be within the last 50 years (and thus next 49 years),
+while a value of 99 indicates that dates should be interpreted to be within the last 99 years and the current year,
+while a 0 indicates dates should be in the current year and the next 99 years. 
 
 For example:
 
@@ -100,6 +101,6 @@ For example:
 20640724 20781204 20020628
 ~~~
 
-# Further Reading
+## Further Reading
 Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https://toolofthought.com) blog.
 
