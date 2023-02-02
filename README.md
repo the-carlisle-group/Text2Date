@@ -5,12 +5,13 @@
 The Text2Date function converts time strings to time numbers:
 
 ~~~
-     R←Y [Z] Text2Date X
+     R←Y [Z [T]] Text2Date X
 ~~~
 
 X is a vector of vectors or a simple character matrix, each element or each row a time string.
-Y is a formatting pattern. Z is an optional fixed century or sliding century window. 
-R a type 60 time number or 0 for an invalid conversion.
+Y is a formatting pattern. Z is an optional fixed century or sliding century window (default is 50). 
+T is the anchor year for the sliding century window (default is `⊃⎕TS`).
+R is a type 60 time number or 0 for an invalid conversion.
 
 For example:
 
@@ -83,7 +84,7 @@ The sequence MMM is not permitted in an undelimited fixed width pattern with a l
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
 If the century window is 1000 or greater, it is interpreted as a fixed century, typically specified as 1900 or 2000.
-Otherwise, the century window is an integer usually from 0 to 99 (it defaults to 50), indicating the number of years preceeding the current
+Otherwise, the century window is an integer usually from 0 to 99 (it defaults to 50), indicating the number of years preceeding the current (or anchor)
 year that the floating window starts. Thus 50, the default, indicates that dates should be intepreted to be within the last 50 years (and thus next 49 years),
 while a value of 99 indicates that dates should be interpreted to be within the last 99 years and the current year,
 while a 0 indicates dates should be in the current year and the next 99 years. 
