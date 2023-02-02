@@ -1,0 +1,21 @@
+ TestSuite4←{
+     ⍝ Test CheckPattern
+     f←##.Main.CheckPattern
+     r←f'YMD'
+     r≢'':1
+     r←f'YMDs'
+     r≢'Missing elements':1
+     r←f'MDh'
+     r≢'Missing elements':1
+     r←f'xyz'
+     r≢'No elements provided':1
+     r←f'YYMMDD-YYYY'
+     r≢'Duplicate elements':1
+     r←f'YMDD'
+     r≢'Invalid element in variable-width pattern':1
+     r←f'YYYYMDD'
+     r≢'Invalid element in fixed-width pattern':1
+     r←f'YYYYYMMDDD'
+     r≢'Invalid element in pattern':1
+     0
+ }
