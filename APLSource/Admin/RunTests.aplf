@@ -1,0 +1,33 @@
+ RunTests←{
+     ⍝ ⍺ ←→ [StopOnFail 0|1,[StopOnBroken 0|1],[Quiet 0|1|2]]]
+     ⍝ ⍵ ←→ Test Namespace
+     ⍝ ← ←→ Result space
+     ⎕IO ⎕ML←0 1
+     ⍺←0
+     sf sb q←3↑⍺
+     ⍵.StopOnFail←⊃⍺
+     s←'Passed' 'Failed' 'Broken' 'N/A' 'Disabled'
+     d←s[0],{'***',⍵,'***'}¨1↓s
+     e←(~sb)/1+⍳99
+     Display←{
+         ⍺>1:0
+         h←'Number of tests:'(≢⍵)
+         1:⎕←h⍪s,⍪+⌿⍵∘.=⍳5
+     }
+     Run←{
+         b←⍺{e::2 ⋄ ⍺⍎⍵}⍵,' 0'
+         q>0:b
+         ⎕←⍵,': ',b⊃d
+         b
+     }
+     Assert←{
+         ⍵:0
+         StopOnFail:'TEST FAILED'⎕SIGNAL 789
+         1
+     }
+     _←⍵.⎕FX ⎕NR'Assert'
+     z←⎕NS''
+     z.Function←'T'⍵.⎕NL ¯3
+     z.Result←⍵ Run¨z.Function
+     z⊣q Display z.Result
+ }
