@@ -1,4 +1,15 @@
-# Text2Date Release 0.0.3                    
+# Text2Date Release 0.0.4                    
+1. Cleanup
+2. First pass at error trapping
+3. Cleanup tests
+4. First pass at verifying format pattern
+5. Update README.md
+6. Add optional window year anchor argument (Issue #6)
+7. Update README.md
+8. Update README.md
+9. Tweak century window algorythm and enhance tests
+
+# Text2Date Release 0.0.3 2023-01-31 08:00:00
 1. Minor cleanup
 2. Update README.md
 3. Fix isue #1, and some refactoring
