@@ -2,6 +2,5 @@
      ⍺←⎕DMX.EN-700
      m←⍵,(0=≢⍵)/⎕DMX.Message
      e←⊂('EN'⍺)('Message'm)
-     0=≢⍵:e
-     ⎕SIGNAL e
+     e⊣⎕SIGNAL(0<≢⍵)/e
  }
