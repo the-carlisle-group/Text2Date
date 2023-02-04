@@ -1,0 +1,5 @@
+ Signal2←{
+     ⍺←⎕DMX.EN-700
+     m←⍵,(0=≢⍵)/⎕DMX.Message
+     ⎕SIGNAL⊂('EN'⍺)('Message'm)
+ }

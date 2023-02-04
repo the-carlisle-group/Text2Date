@@ -2,7 +2,9 @@
      ⍝ ⍵ ←→ Char mat of time strings
      ⍝ ⍺ ←→ Format [Century Window] [Century Anchor Year]
      ⍝ ← ←→ ⎕DT time number type 60 or 0 for invalid
-     f←⊃⊆⍺
+     ⍺←⊢
+     700+⍳100::⎕SIGNAL Signal''
+     (f w t m)←⍺ ErrorCheck ⍵
      k←+/'YMDhms'∊f
-     Validate ⍺ AddCentury k Default k Scale f Decode f Parse↑⍵
+     Validate w t AddCentury k Default k Scale f Decode f Parse m
  }
