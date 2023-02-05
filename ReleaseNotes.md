@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.4                    
+# Text2Date Release 0.0.5                    
+1. Add namespace script artifact (Issue #9)
+
+# Text2Date Release 0.0.4 2023-02-04 12:41:21
 1. Cleanup
 2. First pass at error trapping
 3. Cleanup tests
