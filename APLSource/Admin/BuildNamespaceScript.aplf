@@ -1,0 +1,10 @@
+ BuildNamespaceScript←{
+     v←⍵
+     s←##.Main
+     s←⎕SE.zApps.Dado.Dado.Main.BuildNSS s
+     h←⊂'⍝ ',50⍴'*'
+     h,←⊂'⍝ Version: ',v,⊃'  Mmmm DD, YYYY'(1200⌶)1 ⎕DT⊂⎕TS
+     h,←⊂'⍝ https://github.com/the-carlisle-group/Text2Date'
+     h,←⊂'⍝ ',50⍴'*'
+     (⊂':Namespace Text2Date'),h,(1↓s)
+ }

@@ -1,10 +1,7 @@
  AddCentury←{
-     ⍝ ⍺ ←→ Format [Century Window] [Century Anchor Year]
+     ⍝ ⍺ ←→ Century Window, Century Anchor Year
      ⍝ ⍵ ←→Decimal time number 60
      ⍝ ← ←→ ⍵ with added century
-     ⍝ a←⊆⍺
-     ⍝ d←0 50,⊃⎕TS
-     ⍝ (f w t)←a,(≢a)↓d
      w t←⍺
      y←⌊⍵÷10*4
      b←y<100

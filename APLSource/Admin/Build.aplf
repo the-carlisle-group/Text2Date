@@ -4,5 +4,9 @@
      v←c.Version  ⍝ Add version! or UNVERSIONED
      n←BuildSingleFunction v
      p←f,'ReleaseArtifacts/',n,'.aplf'
-     (⊂⎕NR n)⎕NPUT p 1
+     _←(⊂⎕NR n)⎕NPUT p 1
+     s←BuildNamespaceScript v
+     p←f,'ReleaseArtifacts/',n,'.apln'
+     _←(⊂s)⎕NPUT p 1
+     0
  }
