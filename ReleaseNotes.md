@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.5                    
+# Text2Date Release 0.0.6                    
+1. Fix error propagating (Issue #8)
+
+# Text2Date Release 0.0.5 2023-02-05 14:43:00
 1. Add namespace script artifact (Issue #9)
 
 # Text2Date Release 0.0.4 2023-02-04 12:41:21
