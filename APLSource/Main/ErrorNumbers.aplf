@@ -1,0 +1,2 @@
+ z←ErrorNumbers
+ z←BaseErrorNumber+⍳100

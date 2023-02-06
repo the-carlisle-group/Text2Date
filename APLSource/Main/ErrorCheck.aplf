@@ -1,12 +1,12 @@
  ErrorCheck←{
-     0=⎕NC'⍺':702 Signal'The function requires a left argument'
+     0=⎕NC'⍺':2 Signal'The function requires a left argument'
      m←↑⍵
-     80≠⎕DR m:711 Signal'The right argument must be simple char mat'
+     80≠⎕DR m:11 Signal'The right argument must be simple char mat'
      a←⊆⍺
      d←0 50,⊃⎕TS
      (f w t)←a,(≢a)↓d
      r←CheckPattern f
-     r≢'':711 Signal r
-     (1⊃⍴m)<≢f:711 Signal'The format pattern is wider than the right argument'
+     r≢'':11 Signal r
+     (1⊃⍴m)<≢f:11 Signal'The format pattern is wider than the right argument'
      f w t m
  }

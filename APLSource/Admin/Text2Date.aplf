@@ -1,0 +1,137 @@
+ Text2Date←{
+⍝ **************************************************
+⍝ Version:   February 06, 2023
+⍝ https://github.com/the-carlisle-group/Text2Date
+⍝ **************************************************
+⍝ ⍵ ←→ Char mat of time strings
+⍝ ⍺ ←→ Format [Century Window] [Century Anchor Year]
+⍝ ← ←→ ⎕DT time number type 60 or 0 for invalid
+     ⎕IO←0
+     ⎕ML←1
+     BaseErrorNumber←0
+     AddCentury←{
+         w t←⍺
+         y←⌊⍵÷10*4
+         b←y<100
+         ~∨/b:⍵
+         w>999:⍵+b×w×10*4
+         s x←0 100⊤w-⍨t
+         c←b×s+y<x
+         ⍵+c×10*6
+     }
+     CheckPattern←{
+         a←'YMDhms'
+         fe←'YMYMDhms'/¨⍨4 3,6⍴2
+         ve←'MMYMDhms'/¨⍨4 3,6⍴1
+         s←⍵⊆⍨+\2≠/' ',⍵
+         p←s/⍨a∊⍨⊃¨s
+         0=≢p:'No elements provided'
+         ~∧/p∊fe,ve:'Invalid element in pattern'
+         e←⊃¨p
+         (⊢≢∧\)a∊e:'Missing elements'
+         e≢∪e:'Duplicate elements'
+         u←(∧/⍵∊a)∧(~p∊⍨⊂'MMM')∧∨/p∊'MM' 'YY'
+         f←∨/p∊,¨'YY' 'YYYY'
+         v←∨/p∊⊂,'Y'
+         u∧~(∧/fe∊⍨1↓p)∧(1↑p)∊fe,,¨a:'Invalid element in an undelimited fixed-width pattern'
+         (~u)∧f∧~∧/p∊fe:'Invalid element in fixed-width pattern'
+         (~u)∧v∧~∧/p∊ve:'Invalid element in variable-width pattern'
+         ''
+     }
+     Decode←{
+         1=⍴⍴⍵:⍵
+         e←'YMDhms'
+         100⊥⍵[⍋e⍳∪⍺∩e;]
+     }
+     Default←{
+         ⍵+100 1+.×1 2≥⍺
+     }
+     ErrorCheck←{
+         0=⎕NC'⍺':2 Signal'The function requires a left argument'
+         m←↑⍵
+         80≠⎕DR m:11 Signal'The right argument must be simple char mat'
+         a←⊆⍺
+         d←0 50,⊃⎕TS
+         (f w t)←a,(≢a)↓d
+         r←CheckPattern f
+         r≢'':11 Signal r
+         (1⊃⍴m)<≢f:11 Signal'The format pattern is wider than the right argument'
+         f w t m
+     }
+     FixedMMM←{
+         b←'MMM'⍷⍺
+         ~1∊b:⍺ ⍵
+         i←⍸b
+         f←' '@i⊢⍺
+         m←⍵
+         n←MonthNames''
+         m[;i+⍳3]←'ZI3'⎕FMT 1+n⍳⎕C m[;i+⍳3]
+         f m
+     }
+     IsVariable←{
+         n←+/'YDhms'∘.=⍵
+         (n∧.<2)∧2≠+/'M'=⍵
+     }
+     MonthNames←{
+         12 3⍴'janfebmaraprmayjunjulaugsepoctnovdec'
+     }
+     Pad←{
+         n←2×⍺-⍨⌈/⍺
+         ⍵,↑n⍴¨⊂' 0'
+     }
+     Parse←{
+         IsVariable ⍺:⍺ ParseVariable ⍵
+         ⍺ ParseFixed ⍵
+     }
+     ParseFixed←{
+         f m←⍺ FixedMMM ⍵
+         e←'YMDhms'
+         c←1∊'YYYY'⍷f
+         k←+/e∊f
+         r←(k⍴100)*1+c∧'Y'=∪f∩e
+         b←{∧/⍵:1 ⋄ ⍵}f∊e
+         r⊤ToNum m/⍨b
+     }
+     ParseVariable←{
+         m←' ',⍺ VariableMMM ⍵
+         f←∪⍺∩'YMDhms'
+         b←m∊⎕D
+         r←+/2</b
+         k←≢f
+         n←⊃r
+         r∨.≠n:⍺ ∇ r Pad ⍵
+         v←,m
+         v[⍸~,b]←' '
+         ⍉(⌽n,≢m)⍴1⊃⎕VFI v
+     }
+     Scale←{
+         ⍵÷10*⍺-6-⍺
+     }
+     Signal←{
+         b←BaseErrorNumber
+         ⍺←⎕DMX.EN-b
+         m←⍵,(0=≢⍵)/⎕DMX.Message
+         e←⊂('EN'(⍺+b))('Message'm)
+         e⊣⎕SIGNAL(0<≢⍵)/e
+     }
+     ToNum←{
+         d←⎕UCS 181
+         1⊃d ⎕VFI 1↓,d,⍵
+     }
+     Validate←{
+         ⍵×60 0 ⎕DT ⍵
+     }
+     VariableMMM←{
+         ~1∊'MMM'⍷⍺:⍵
+         n←↓MonthNames''
+         v←⎕C,⍵
+         b←n⍷¨⊂v
+         j←{⍵,⍵+1}∊⍸¨b
+         v[j]←,⍉'I2'⎕FMT(+/¨b)/1+⍳12
+         v⍴⍨⍴⍵
+     }
+     ⍺←⊢
+     (f w t m)←⍺ ErrorCheck ⍵
+     k←+/'YMDhms'∊f
+     Validate w t AddCentury k Default k Scale f Decode f Parse m
+ }
