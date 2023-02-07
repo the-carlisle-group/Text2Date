@@ -1,4 +1,11 @@
-# Text2Date Release 0.0.6                    
+# Text2Date Release 0.0.8                    
+1. Update README.md
+2. Update README.md
+3. Update README.md
+4. WIP
+5. Cleanup tests
+
+# Text2Date Release 0.0.6 2023-02-06 08:14:56
 1. Fix error propagating (Issue #8)
 
 # Text2Date Release 0.0.5 2023-02-05 14:43:00
