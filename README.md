@@ -104,8 +104,9 @@ For example:
 
 ## Distribution
 
-Text2Date is a Dado project containing, as is typical of a project, set of functions in a namespace, which may be included as a dependency in the normal way.
-However, the releases also contain a single function **Text2Date.aplf** which may be copy/pasted into a workspace or project.  
+Text2Date is a Dado project containing, as is typical of a project, a set of functions in a namespace, which may be included as a dependency in the normal way.
+However, the releases also contain a self-contained function **Text2Date.aplf**, and a self-contained namespace script **'Text2Date.apln'**, 
+either of which may be copy/pasted or fixed into a workspace or project.  
 
 ## Further Reading
 Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https://toolofthought.com) blog.
