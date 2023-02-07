@@ -1,0 +1,20 @@
+ TestPattern←{
+     f←##.Main.CheckPattern
+     r←f'YMD'
+     Assert r≡'':
+     r←f'YMDs'
+     Assert r≡'Missing elements':
+     r←f'MDh'
+     Assert r≡'Missing elements':
+     r←f'xyz'
+     Assert r≡'No elements provided':
+     r←f'YYMMDD-YYYY'
+     Assert r≡'Duplicate elements':
+     r←f'YMDD'
+     Assert r≡'Invalid element in variable-width pattern':
+     r←f'YYYYMDD'
+     Assert r≡'Invalid element in fixed-width pattern':
+     r←f'YYYYYMMDDD'
+     Assert r≡'Invalid element in pattern':
+     0
+ }

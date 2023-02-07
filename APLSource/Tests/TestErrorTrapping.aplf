@@ -1,0 +1,7 @@
+ TestErrorTrapping←{
+     f←##.Main.Text2Date
+     Assert 2=f Try'':
+     Assert 11='YYYY/MM/DD'f Try'89/01/01' '02/01/01':
+     2+' '
+     0
+ }
