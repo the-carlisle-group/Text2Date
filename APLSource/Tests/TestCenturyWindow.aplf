@@ -1,4 +1,4 @@
- TestCenturyWindown←{
+ TestCenturyWindow←{
      f←##.Main.Text2Date
      r←'YMD' 50 f'99/1/1' '23/01/01'
      Assert r≡19990101 20230101:
