@@ -1,4 +1,8 @@
-# Text2Date Release 0.0.6                    
+# Text2Date Release 0.0.7                    
+1. WIP
+2. Cleanup tests
+
+# Text2Date Release 0.0.6 2023-02-06 08:14:56
 1. Fix error propagating (Issue #8)
 
 # Text2Date Release 0.0.5 2023-02-05 14:43:00
