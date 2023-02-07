@@ -21,8 +21,9 @@ For example:
 ~~~
 
 ## Time Strings
-Dyalog v18 introduced `⎕DT` and defines the terms date-time, which may be represented as a time number, a timestamp, or military time zone character.
-Here we add the term 'time string' to the lexicon as yet another way to represent a date-time. A time string is a simple character vector that contains
+Dyalog v18 introduced `⎕DT` and defines the term ***date-time***, which may be represented as a ***time number***, a ***timestamp***,
+or ***military time zone character***.
+Here we add the term ***time string*** to the lexicon as yet another way to represent a date-time. A time string is a simple character vector that contains
 sufficient information to reasonably convert it to a time number:
 
 ~~~
