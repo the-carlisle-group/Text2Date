@@ -1,4 +1,4 @@
- GuessFormat←{
+ InferFormat←{
      ⍝ ⍵ ←→ Matrix of time strings
      ⍝ ← ←→ Info
      f←BasicFormats''

@@ -1,5 +1,5 @@
- TestGuessFormat←{
-     f←##.Main.GuessFormat
+ TestInferFormat←{
+     f←##.Main.InferFormat
      r←f'12/31/99' '01/01/00' '09/10/23'
      Assert'MM/DD/YY'≡⊃r.Format:
      0
