@@ -1,0 +1,10 @@
+ BasicFormats←{
+     i←⊂¨∪⍋¨,⍳3⍴3
+     fp←,i∘.⌷(4 3 2)(4 2 2)(2 3 2)2/¨¨⊂'YMD'
+     fp←fp,∪fp~¨⊂⊂'DD'
+     fu←∊¨fp
+     fd←1↓¨∊¨'/',¨¨fp
+     v←i∘.⌷⊂'YMD'
+     v,←∪v~¨'D'
+     fu,fd,v
+ }

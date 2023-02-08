@@ -9,8 +9,13 @@
      d←↓↑':',¨⍨s,¨⍨' ',¨⍨3/¨1 4/' !'
      Display←{
          ⍺>1:0
-         h←'Number of tests:'(≢⍵)
-         1:⎕←'*'⍪⍕h⍪s,⍪+⌿⍵∘.=⍳5
+         r←z.Result
+         h←'Number of tests:'(≢r)
+         ⎕←'*'⍪(⍕h⍪s,⍪+⌿r∘.=⍳5)⍪'*'
+         ⎕←'Code coverage: ',,'Q<%>F5.1'⎕FMT ⍵.Coverage
+         ⎕←'Untested code:'
+         ⎕←↑⍵.Untested
+         0
      }
      Execute←{
          tb/1+⍳99::2
@@ -34,6 +39,9 @@
      _←⍵.⎕FX¨⎕NR¨'Assert' 'Try'
      z←⎕NS''
      z.Function←'T'⍵.⎕NL ¯3
+     _←⎕PROFILE'start' 'coverage'
      z.Result←⍵ Run¨z.Function
-     1:z←z⊣q Display z.Result
+     _←⎕PROFILE'stop'
+     z.(Coverage Untested)←Coverage 0
+     1:z←z⊣q Display z
  }

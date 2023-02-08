@@ -1,0 +1,18 @@
+ Coverage←{
+     m←##.Main
+     n←m.⎕NL-3 4
+     af←(⍕m)∘,¨'.',¨n
+     d←⎕PROFILE'data'           ⍝ Profile Data
+     b←d[;1]∊⊂⍬                 ⍝
+     ef←b/d[;0]                 ⍝ Executed functions
+     el←(+\b)⊆d[;1]             ⍝ Executed lines
+     nr←(⎕NR¨af)~¨⊂⊂' }'        ⍝
+     al←⍳¨≢¨nr                  ⍝ All lines
+     ul←al~¨(el,⊂⍬)[ef⍳af]      ⍝ Unexecuted lines
+     c←100×1-÷/≢¨∊¨ul al        ⍝ Coverage
+     k←0<≢¨ul                   ⍝ Some unexecuted
+     uf←~af∊ef                  ⍝ Unused function
+     (uf/ul)←⊂⍬                ⍝
+     z←k/af{0=≢⍵:⍺ ⋄ ⍺,'[',(⍕⍵),']'}¨ul  ⍝
+     c z
+ }
