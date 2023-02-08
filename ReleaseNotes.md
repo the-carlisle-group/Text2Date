@@ -1,4 +1,9 @@
-# Text2Date Release 0.0.10                    
+# Text2Date Release 0.0.11                    
+1. Rename GuessFormat to the slightly more professional InferFormat
+2. Work on GuessFormat
+3. Cleanup tests
+
+# Text2Date Release 0.0.10 2023-02-08 07:06:24
 1. Improve variable format processing
 2. Start on GuessFormat function
 
