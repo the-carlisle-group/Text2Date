@@ -1,0 +1,8 @@
+ TestFixedFormats←{
+     f←##.Main.Text2Date
+     r←'MM/DD/YY'f'12/31/99' '99/99/99' '01/01/23'
+     Assert r≡19991231 0 20230101:
+     r←'DD-MMM-YYYY'f'01-Jan-2022' '31-Dec-2023'
+     Assert r≡20220101 20231231:
+     0
+ }
