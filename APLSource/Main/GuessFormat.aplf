@@ -2,23 +2,14 @@
      ⍝ ⍵ ←→ Matrix of time strings
      ⍝ ← ←→ Info
      f←BasicFormats''
-     r←{0::0⍴⍨≢⍵ ⋄ ⍺ Text2Date ⍵}¨⊂⍵
-     b←0≠r                                   ⍝ Good
-     n←+/¨r                                  ⍝ Count
-     g←⍒n                                    ⍝ Sort
-     n←n[g]                                  ⍝ Sorted count
-     f←f[g]                                  ⍝ Sorted format
-     am←(=/2↑n)∧=/≢¨2↑f                      ⍝ Top two equally valid formats
-     k←+/¨<\b[g]                             ⍝ Relative count
-     g←⍒k          ⍝ Sort again
-     f←f[g]        ⍝ Format                                    Why not ONCE?
-     an←n[g]       ⍝ Absolute count
-     rn←k[g]       ⍝ Relative count
-     j←(an>0)∨rn>0
+     r←f{0::0⍴⍨≢⍵ ⋄ ⍺ Text2Date ⍵}¨⊂⍵
+     b←0≠r
+     n←+/¨b
+     g←⍒n
+     k←(+/¨<\b[g])[⍋g]
+     m←(↑f n k)[;g]
      s←⎕NS''
-     s.Format←j/f
-     s.AbsoluteValid←j/an
-     s.RelativeValid←j/rn
-     s.Ambiguous←am
+     s.(Format Absolute Relative)←↓(m[1;]>0)/m
+     s.Ambiguous←(=/2↑s.Absolute)∧=/≢¨2↑s.Format
      s
  }

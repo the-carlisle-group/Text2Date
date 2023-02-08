@@ -12,7 +12,8 @@
          r←z.Result
          h←'Number of tests:'(≢r)
          ⎕←'*'⍪(⍕h⍪s,⍪+⌿r∘.=⍳5)⍪'*'
-         ⎕←'Code coverage: ',,'Q<%>F5.1'⎕FMT ⍵.Coverage
+         ⎕←'Code coverage: ',,'Q<%>I4'⎕FMT ⍵.Coverage
+         ⍵.Coverage=100:0
          ⎕←'Untested code:'
          ⎕←↑⍵.Untested
          0
