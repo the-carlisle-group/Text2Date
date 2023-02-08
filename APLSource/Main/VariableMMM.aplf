@@ -1,4 +1,5 @@
  VariableMMM←{
+     ⍝ Convert 'MMM' to ' MM'
      ~1∊'MMM'⍷⍺:⍵
      n←↓MonthNames''
      v←⎕C,⍵

@@ -2,14 +2,17 @@
      ⍝ ⍺ ←→ Variable width format
      ⍝ ⍵ ←→ Character matrix of time strings
      ⍝ ← ←→ Time matrix
-     m←' ',⍺ VariableMMM ⍵     ⍝ Convert Jan, et.c Pad
-     f←∪⍺∩'YMDhms'             ⍝ Strip any delims and redundant elements
-     b←m∊⎕D                    ⍝ digit runs
-     r←+/2</b                  ⍝ Count the digit runs
-     k←≢f                      ⍝ Number of desired elements
-     n←⊃r                      ⍝ Number of actual elements
-     r∨.≠n:⍺ ∇ r Pad ⍵         ⍝ Not all same, try again
-     v←,m                      ⍝ Ravel
-     v[⍸~,b]←' '               ⍝ Blank out all delims
-     ⍉(⌽n,≢m)⍴1⊃⎕VFI v         ⍝ Convert to numeric matrix
+     m←' ',⍺ VariableMMM ⍵
+     f←∪⍺∩'YMDhms'
+     b←m∊⎕D
+     r←+/2</b
+     k←≢f
+     j←r≠k
+     n←+/j
+     p←(⊃⌽⍴m)↑' 0'⍴⍨2×k
+     m[⍸j;]←↑n⍴⊂p
+     b[⍸j;]←1
+     v←,m
+     v[⍸~,b]←' '
+     ⍉(⌽k,≢m)⍴1⊃⎕VFI v
  }
