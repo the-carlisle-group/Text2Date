@@ -1,4 +1,8 @@
-# Text2Date Release 0.0.8                    
+# Text2Date Release 0.0.10                    
+1. Improve variable format processing
+2. Start on GuessFormat function
+
+# Text2Date Release 0.0.8 2023-02-07 09:22:54
 1. Update README.md
 2. Update README.md
 3. Update README.md
