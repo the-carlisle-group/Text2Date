@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.13                    
+# Text2Date Release 0.0.14                    
+1. Cleanup error trapping
+
+# Text2Date Release 0.0.13 2023-02-11 09:34:16
 1. Update README.md
 2. Cleanup
 3. Cleanup
