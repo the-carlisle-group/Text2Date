@@ -5,8 +5,5 @@
      n←BuildSingleFunction v
      p←f,'ReleaseArtifacts/',n,'.aplf'
      _←(⊂⎕NR n)⎕NPUT p 1
-     s←BuildNamespaceScript v
-     p←f,'ReleaseArtifacts/',n,'.apln'
-     _←(⊂s)⎕NPUT p 1
      0
  }
