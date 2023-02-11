@@ -1,7 +1,6 @@
  Signal←{
-     b←BaseErrorNumber
-     ⍺←⎕DMX.EN-2×b
+     ⍺←⎕DMX.EN-789
      m←⍵,(0=≢⍵)/⎕DMX.Message
-     e←⊂('EN'(⍺+b))('Message'm)
+     e←⊂('EN'⍺)('Message'm)
      e⊣⎕SIGNAL(0<≢⍵)/e
  }
