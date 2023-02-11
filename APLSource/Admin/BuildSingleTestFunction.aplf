@@ -1,0 +1,18 @@
+ BuildSingleTestFunction←{
+     v←⍵
+     s←##.Provanto
+     f←'Run'
+     n←s.⎕NL-3 4
+     c←⊃,/s.⎕NR¨n~⊂f
+     m←s.⎕NR f
+     r←c,4↓m
+     r←{⍵/⍨∧\'⍝'≠⍵}¨r
+     r←(∨/¨' '≠r)/r
+     q←'⎕IO←0' '⎕ML←1'
+     h←⊂'⍝ ',50⍴'*'
+     h,←⊂'⍝ Version: ',v,⊃'  Mmmm DD, YYYY'(1200⌶)1 ⎕DT⊂⎕TS
+     h,←⊂'⍝ https://github.com/the-carlisle-group/Provanto'
+     h,←⊂'⍝ ',50⍴'*'
+     h,←{⍵/⍨∨\' '≠⍵}¨3↑1↓m
+     ⎕FX(⊂'ProvantoRun←{'),h,q,r
+ }

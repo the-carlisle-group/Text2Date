@@ -1,7 +1,9 @@
  Coverage←{
-     m←⍵
-     n←m.⎕NL-3 4
-     af←(⍕m)∘,¨'.',¨n
+     0=⍵.CodeSpace:¯1 ''
+     s←Spaces⍕⍵.CodeSpace
+     n←s.⎕NL⊂-3 4
+     p←'.',¨⍨⍕¨s
+     af←⊃,/p{⍺∘,¨⍵}¨n
      d←⎕PROFILE'data'
      b←d[;1]∊⊂⍬
      ef←b/d[;0]

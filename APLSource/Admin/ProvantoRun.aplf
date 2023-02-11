@@ -1,0 +1,80 @@
+ ProvantoRun←{
+⍝ **************************************************
+⍝ Version:   February 09, 2023
+⍝ https://github.com/the-carlisle-group/Provanto
+⍝ **************************************************
+⍝ ⍺ ←→ StopOnFail 0|1, StopOnBroken 0|1, Quiet 0|1|2
+⍝ ⍵ ←→ Test space, Code Space
+⍝ ← ←→ Result space
+     ⎕IO←0
+     ⎕ML←1
+     Assert←{
+         0⊣'TEST FAILED'⎕SIGNAL 789/⍨~⍵
+     }
+     Coverage←{
+         s←Spaces⍕⍵.CodeSpace
+         n←s.⎕NL⊂-3 4
+         p←'.',¨⍨⍕¨s
+         af←⊃,/p{⍺∘,¨⍵}¨n
+         d←⎕PROFILE'data'
+         b←d[;1]∊⊂⍬
+         ef←b/d[;0]
+         el←(+\b)⊆d[;1]
+         nr←(⎕NR¨af)~¨⊂⊂' }'
+         al←⍳¨≢¨nr
+         ul←al~¨(el,⊂⍬)[ef⍳af]
+         c←100×1-÷/≢¨∊¨ul al
+         k←0<≢¨ul
+         uf←~af∊ef
+         (uf/ul)←⊂⍬
+         z←k/af{0=≢⍵:⍺ ⋄ ⍺,'[',(⍕⍵),']'}¨ul
+         c z
+     }
+     Display←{
+         ⍵.Quiet>1:0
+         r←⍵.Result
+         h←'Number of tests:'(≢r)
+         ⎕←'*'⍪(⍕h⍪⍵.Status,⍪+⌿r∘.=⍳5)⍪'*'
+         ⎕←'Code coverage: ',,'Q<%>I4'⎕FMT ⍵.Coverage
+         ⍵.Coverage=100:0
+         ⎕←'Untested code:'
+         ⎕←↑⍵.Untested
+         0
+     }
+     Exe←{
+         (1+⍳99)/⍨~⍺.StopOnBroken::2
+         789/⍨~⍺.StopOnFail::1
+         b←⍺.TestSpace⍎⍵,' 0'
+         ⍺.Quiet>0:b
+         b⊣⎕←(b⊃⍺.DecoratedStatus),' ',⍵
+     }
+     Spaces←{
+         ⍵≢⍕⍎⍵:⍬
+         s←⍵∘,¨'.',¨(⍎⍵).⎕NL ¯9
+         0=≢s:,⍎⍵
+         ∊(⍎⍵),∇¨s
+     }
+     Status←{
+         s←'Passed' 'Failed' 'Broken' 'N/A' 'Disabled'
+         d←↓(↑':',¨⍨s),' ',↑3/¨' !!--'
+         s d
+     }
+     Try←{
+         ⍺←⊢
+         0::⎕DMX.EN
+         9999⊣⍺ ⍺⍺ ⍵
+     }
+     z←⎕NS''
+     z.(StopOnFail StopOnBroken Quiet)←3↑⍺
+     z.(TestSpace CodeSpace)←⍵
+     z.(Status DecoratedStatus)←Status''
+     _←z.TestSpace.⎕FX¨⎕NR¨'Assert' 'Try'
+     z.Function←'T'z.TestSpace.⎕NL ¯3
+     _←⎕PROFILE'clear'##.Provanto.Run
+     _←⎕PROFILE'start' 'coverage'
+     z.Result←z Exe¨z.Function
+     _←⎕PROFILE'stop'
+     z.(Coverage Untested)←Coverage z
+     _←⎕PROFILE'clear'
+     1:z←z⊣Display z
+ }
