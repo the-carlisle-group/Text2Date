@@ -1,4 +1,9 @@
-# Text2Date Release 0.0.11                    
+# Text2Date Release 0.0.12                    
+1. Cleanup
+2. Cleanup
+3. WIP
+
+# Text2Date Release 0.0.11 2023-02-08 10:40:09
 1. Rename GuessFormat to the slightly more professional InferFormat
 2. Work on GuessFormat
 3. Cleanup tests
