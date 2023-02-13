@@ -1,4 +1,8 @@
-# Text2Date Release 0.0.14                    
+# Text2Date Release 0.0.15                    
+1. Delete obsolote functions
+2. Cleanup error trapping again
+
+# Text2Date Release 0.0.14 2023-02-11 11:00:59
 1. Cleanup error trapping
 
 # Text2Date Release 0.0.13 2023-02-11 09:34:16
