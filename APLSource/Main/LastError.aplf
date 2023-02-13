@@ -1,0 +1,5 @@
+ LastError←{
+     en←⎕DMX.EN-789
+     m←⎕DMX.Message
+     ⊂('EN'en)('Message'm)
+ }

@@ -1,6 +1,3 @@
  Signal←{
-     ⍺←⎕DMX.EN-789
-     m←⍵,(0=≢⍵)/⎕DMX.Message
-     e←⊂('EN'⍺)('Message'm)
-     e⊣⎕SIGNAL(0<≢⍵)/e
+     ⎕SIGNAL⊂('EN'(⍺+300))('Message'⍵)
  }
