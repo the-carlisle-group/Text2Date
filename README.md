@@ -48,10 +48,12 @@ Hello world!
 Text2Date uses a modified version of the `1200⌶` formatting pattern.
 
 Text2Date formally divides time strings and their associated formatting patterns into two categories "fixed" and "variable".
-Variable formats must be delimited, fixed formats may or may not be delimited. (There is one exception to this, noted below)
+Variable formats must be delimited, fixed formats may or may not be delimited.
 
 A fixed width pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
-must be ordered and spaced appropriately to line up with the input. All other characters or sequences are ignored. For example:
+must be ordered and spaced appropriately to line up with the input. (Undelimited fixed-width formats do not require
+conistently spaced elements as noted below.)
+All other characters or sequences are ignored. For example:
 
 ~~~
       '.....MM-DD-YY' Text2Date 'DOB: 07/24/10' 'DOB: 12/04/02'
@@ -70,13 +72,14 @@ are ignored. There is no need to specify the delimiters or space out the element
 A valid formatting pattern (and time string) must contain all elements representing units larger than its smallest element.
 For example, if a pattern contains days, it must contain years and months.
 
-## Leading Variable Elements in Undelimited Fixed Width Patterns
-Undelimited fixed-width patterns may have a leading variable length element. For example:
+## Undelimited Fixed Width Patterns
+Undelimited fixed-width patterns do not require conistently spaced elements. In addition,
+leading zeros may be elided. For example:
 
 ~~~
-      'MDDYY' Text2Date '43022' '123199'
+      'MMDDYY' Text2Date '43022' '123199'
 20220430 19991231
-      'YMMDD' Text2Date '21231' '991231'
+      'YYMMDD' Text2Date '21231' '991231'
 20021231 19991231
 ~~~
 
