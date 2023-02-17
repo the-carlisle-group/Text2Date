@@ -1,19 +1,21 @@
  BasicFormats←{
+     m←↑⍵
+     w←1⊃⍴m
+     toWide←w∘{⍵/⍨⍺≥≢¨⍵}
+     noDays←{⍵/⍨~'D'∊¨⍵}
+     hasDays←{⍵/⍨'D'∊¨⍵}
      i←⊂¨∪⍋¨,⍳3⍴3
      fp←,i∘.⌷(4 3 2)(4 2 2)(2 3 2)2/¨¨⊂'YMD'
      fp←fp,∪fp~¨⊂⊂'DD'
-     fu←∊¨fp
      fd←1↓¨∊¨'/',¨¨fp
+     fu←{⍵/⍨~∨/'MMM'⍷↑⍵}∊¨fp
      v←i∘.⌷⊂'YMD'
      v,←∪v~¨'D'
-                 ⍝ Optimizations:
-                 ⍝ 1. IF All digits in one run, with potentially leading and trailing blanks.
-                 ⍝    then no need for v or fd, we can do only leading variable undlemited fixed width.
-                 ⍝ 2. If format is wider than data, drop it.
-                 ⍝
-                 ⍝ 3. If we have the digit run count, we could eliminate some items
-
-
-     fu,fd,v
-     ⍝ (1⊃⍴⍵)≤≢¨a)/a     ⍝ Keep if not too wide
+     b←⎕D∊⍨' ',m
+     r←+/2</b                      ⍝ Digit runs
+     fw←1=≢∪b                      ⍝ Fixed width
+     1∧.=r:toWide fu               ⍝ No delimiters
+     fw∧2∧.=r:noDays toWide fd     ⍝ Fixed without days
+     fw∧3∧.=r:hasDays toWide fd    ⍝ Fixed with days
+     toWide fu,fd,v
  }
