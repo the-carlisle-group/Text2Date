@@ -50,9 +50,8 @@ Text2Date uses a modified version of the `1200⌶` formatting pattern.
 Text2Date formally divides time strings and their associated formatting patterns into two categories "fixed" and "variable".
 Variable formats must be delimited, fixed formats may or may not be delimited.
 
-A fixed width pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
-must be ordered and spaced appropriately to line up with the input. (Undelimited fixed-width formats do not require
-conistently spaced elements as noted below.)
+A delimited fixed-width  pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
+must be ordered and spaced appropriately to line up with the input.
 All other characters or sequences are ignored. For example:
 
 ~~~
@@ -60,7 +59,17 @@ All other characters or sequences are ignored. For example:
 20100724 20021204
 ~~~
 
-A variable width pattern should contain only the following sequences: Y, M, MMM, MMMM, D, h, m, and s. The elements
+An undelimited fixed-width pattern should contain only the following sequences: YY, YYYY, MM, DD, hh, mm, and ss. 
+No other characters or sequences should appear in the pattern. The elements
+must be ordered appropriately. The characters in the input matrix do not need to line up in any way. 
+In addition, leading zero characters may be elided. For example:
+
+~~~
+      'MMDDYY' Text2Date '43022' '123199' '   031724'
+20220430 19991231 20240317
+~~~
+
+A variable-width pattern should contain only the following sequences: Y, M, MMM, MMMM, D, h, m, and s. The elements
 must be ordered appropriately. Any additional characters
 are ignored. There is no need to specify the delimiters or space out the elements. For example:
 
@@ -71,19 +80,6 @@ are ignored. There is no need to specify the delimiters or space out the element
 
 A valid formatting pattern (and time string) must contain all elements representing units larger than its smallest element.
 For example, if a pattern contains days, it must contain years and months.
-
-## Undelimited Fixed Width Patterns
-Undelimited fixed-width patterns do not require conistently spaced elements. In addition,
-leading zeros may be elided. For example:
-
-~~~
-      'MMDDYY' Text2Date '43022' '123199'
-20220430 19991231
-      'YYMMDD' Text2Date '21231' '991231'
-20021231 19991231
-~~~
-
-The sequence MMM is not permitted in an undelimited fixed width pattern with a leading variable element.
 
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
