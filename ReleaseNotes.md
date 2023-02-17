@@ -1,4 +1,15 @@
-# Text2Date Release 0.0.15                    
+# Text2Date Release 0.0.16                    
+1. More improvements to InferFormat
+2. Update README.md
+3. Simplify handling of leading variable element in an undelimited fixed pattern
+4. Update README.md
+5. Update README.md
+6. Update README.md
+7. Update README.md
+8. Improve InferFormat function
+9. Fix issue #11
+
+# Text2Date Release 0.0.15 2023-02-13 09:29:45
 1. Delete obsolote functions
 2. Cleanup error trapping again
 
