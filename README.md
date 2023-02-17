@@ -50,6 +50,9 @@ Text2Date uses a modified version of the `1200⌶` formatting pattern specificat
 Text2Date formally divides time strings and their associated formatting patterns into two categories "fixed" and "variable".
 Variable formats must be delimited, fixed formats may or may not be delimited.
 
+A valid formatting pattern (and time string) must contain all elements representing units larger than its smallest element.
+For example, if a pattern contains days, it must contain years and months.
+
 A delimited fixed-width  pattern should contain only the following sequences: YY, YYYY, MM, MMM, DD, hh, mm, and ss. The elements
 must be ordered and spaced appropriately to line up with the input.
 All other characters or sequences are ignored. For example:
@@ -77,9 +80,6 @@ are ignored. There is no need to specify the delimiters or space out the element
       'MDYhm' Text2Date 'Party: 12/31/22 23:59' 'Hangover: 1/1/23 9:03'
 20221231.2359 20230101.0903
 ~~~
-
-A valid formatting pattern (and time string) must contain all elements representing units larger than its smallest element.
-For example, if a pattern contains days, it must contain years and months.
 
 ## Century Window
 The century window specifies how a century is added when only a two digit year is provided.
