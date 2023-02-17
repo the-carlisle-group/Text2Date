@@ -16,5 +16,7 @@
      Assert r≡'Invalid element in fixed-width pattern':
      r←f'YYYYYMMDDD'
      Assert r≡'Invalid element in pattern':
+     r←f'MDDYY'
+     Assert r≡'Invalid element in fixed-width pattern':
      0
  }

@@ -9,11 +9,8 @@
      e←⊃¨p
      (⊢≢∧\)a∊e:'Missing elements'
      e≢∪e:'Duplicate elements'
-     u←(∧/⍵∊a)∧(~p∊⍨⊂'MMM')∧∨/p∊'MM' 'YY'
-     f←∨/p∊,¨'YY' 'YYYY'
-     v←∨/p∊⊂,'Y'
-     u∧~(∧/fe∊⍨1↓p)∧(1↑p)∊fe,,¨a:'Invalid element in an undelimited fixed-width pattern'
-     (~u)∧f∧~∧/p∊fe:'Invalid element in fixed-width pattern'
-     (~u)∧v∧~∧/p∊ve:'Invalid element in variable-width pattern'
+     f←∨/p∊'YY' 'YYYY'
+     f∧~∧/p∊fe:'Invalid element in fixed-width pattern'
+     (~f)∧~∧/p∊ve:'Invalid element in variable-width pattern'
      ''
  }

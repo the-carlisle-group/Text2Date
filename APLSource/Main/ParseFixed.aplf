@@ -7,7 +7,8 @@
      c←1∊'YYYY'⍷f
      k←+/e∊f
      r←(k⍴100)*1+c∧'Y'=∪f∩e
-     v←≠/2↑f
-     b←v∨(1⊃⍴m)↑f∊e
-     r⊤ToNum m/⍨b
+     u←∧/f∊e
+     b←u∨(1⊃⍴m)↑f∊e
+     n←ToNum m/⍨b
+     r⊤n×(~u)∨n<10*≢f
  }
