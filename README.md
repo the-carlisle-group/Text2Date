@@ -45,7 +45,7 @@ Hello world!
 ~~~
 
 ## Formatting Patterns
-Text2Date uses a modified version of the `1200⌶` formatting pattern.
+Text2Date uses a modified version of the `1200⌶` formatting pattern specification.
 
 Text2Date formally divides time strings and their associated formatting patterns into two categories "fixed" and "variable".
 Variable formats must be delimited, fixed formats may or may not be delimited.
@@ -105,7 +105,7 @@ For example:
 ## Distribution
 
 Text2Date is a Dado project that may be included as a dependency in the normal way.
-However, the releases also contain a namespace script **Text2Date.apln**,
+However, the releases also contain a stand-alone namespace script **Text2Date.apln**,
 which may be copy/pasted or fixed into a project or workspace.  
 
 ## Further Reading
