@@ -1,15 +1,20 @@
  InferFormat←{
      ⍝ ⍵ ←→ Matrix of time strings
      ⍝ ← ←→ Info
-     f←BasicFormats''
-     r←f{0::0⍴⍨≢⍵ ⋄ ⍺ Text2Date ⍵}¨⊂⍵
+     a←BasicFormats ⍵
+     e←300+⍳100
+     ok←a{e::0 ⋄ 1⊣⍺ ErrorCheck ⍵}¨⊂⍵
+     f←ok/a
+     r←f{⍺ Text2Date ⍵}¨⊂⍵
      b←0≠r
      n←+/¨b
      g←⍒n
      k←(+/¨<\b[g])[⍋g]
      m←(↑f n k)[;g]
      s←⎕NS''
-     s.(Format Absolute Relative)←↓(m[1;]>0)/m
-     s.Ambiguous←(=/2↑s.Absolute)∧=/≢¨2↑s.Format
+     s.(AllFormats Absolute Relative)←↓(m[1;]>0)/m
+     s.Ambiguous←(=/2↑s.Absolute)∧=/≢¨2↑s.AllFormats
+     s.Formats←s.AllFormats/⍨s.Relative>0
+     s.PrimaryFormat←⊃s.Formats
      s
  }

@@ -6,5 +6,14 @@
      fd←1↓¨∊¨'/',¨¨fp
      v←i∘.⌷⊂'YMD'
      v,←∪v~¨'D'
+                 ⍝ Optimizations:
+                 ⍝ 1. IF All digits in one run, with potentially leading and trailing blanks.
+                 ⍝    then no need for v or fd, we can do only leading variable undlemited fixed width.
+                 ⍝ 2. If format is wider than data, drop it.
+                 ⍝
+                 ⍝ 3. If we have the digit run count, we could eliminate some items
+
+
      fu,fd,v
+     ⍝ (1⊃⍴⍵)≤≢¨a)/a     ⍝ Keep if not too wide
  }
