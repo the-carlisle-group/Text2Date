@@ -16,5 +16,19 @@
      Assert r.Formats≡,⊂'MMMDY':
      r←f'Jan 23, 1999' 'Dec 01, 2003' 'Jun 30, 2001'
      Assert r.Formats≡,⊂'MMMDY':
+     r←f'1/1/01' '12/1/99' '2/1/22' '11/1/23'
+     Assert r.PrimaryFormat≡'MDY':
+     r←f'1/1/1' '2/2/2' '3/3/3' '4/4/4'
+     Assert r.Ambiguous:
+     r←f'1/1/99' '2/2/2' '3/3/3' '4/4/4'
+     Assert r.Ambiguous:
+     r←f'1/1/99' '2/14/2' '3/3/3' '4/4/4'
+     Assert~r.Ambiguous:
+     r←f'1/1/01' '12/1/11' '2/1/09' '11/1/10'
+     Assert r.Ambiguous:
+     r←f'12/01/24' '12/14/99' '01/01/00'
+     Assert r.PrimaryFormat≡'MM/DD/YY':
+     r←f'Jan 23, 1999' '1999/12/31' 'Dec 1, 2003' '2022/01/01' 'Jun 30, 2001'
+     Assert r.Formats≡'MMMDY' 'YYYY/MM/DD':
      0
  }

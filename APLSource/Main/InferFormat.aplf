@@ -11,8 +11,9 @@
      g←⍒n
      k←(+/¨<\b[g])[⍋g]
      m←(↑f n k)[;g]
+     q←(m[1;]>0)∧~(m[2;]=0)∧1∊¨'MMM'∘⍷¨m[0;]
      s←⎕NS''
-     s.(AllFormats Absolute Relative)←↓(m[1;]>0)/m
+     s.(AllFormats Absolute Relative)←↓q/m
      s.Ambiguous←(=/2↑s.Absolute)∧=/≢¨2↑s.AllFormats
      s.Formats←s.AllFormats/⍨s.Relative>0
      s.PrimaryFormat←⊃s.Formats
