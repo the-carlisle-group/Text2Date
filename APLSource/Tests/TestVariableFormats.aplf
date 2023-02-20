@@ -14,5 +14,7 @@
      Assert r≡20220101 20231231:
      r←'DMMMMY'f'1 January, 2022' '31 December, 2023'
      Assert r≡20220101 20231231:
+     r←'MMMDY'f'Jan 23, 1999' 'Dec 01, 2003' 'Jun 30, 2001'
+     Assert r≡19990123 20031201 20010630:
      0
  }

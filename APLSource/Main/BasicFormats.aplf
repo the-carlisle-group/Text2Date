@@ -10,12 +10,15 @@
      fd←1↓¨∊¨'/',¨¨fp
      fu←{⍵/⍨~∨/'MMM'⍷↑⍵}∊¨fp
      v←i∘.⌷⊂'YMD'
+     v,←(1+2×v='M')/¨v
      v,←∪v~¨'D'
      b←⎕D∊⍨' ',m
-     r←+/2</b                      ⍝ Digit runs
-     fw←1=≢∪b                      ⍝ Fixed width
-     1∧.=r:toWide fu               ⍝ No delimiters
-     fw∧2∧.=r:noDays toWide fd     ⍝ Fixed without days
-     fw∧3∧.=r:hasDays toWide fd    ⍝ Fixed with days
-     toWide fu,fd,v
+     r←+/2</b                              ⍝ Digit runs
+     d←+/~b[0;]                            ⍝ Number of delims
+     fw←1=≢∪b                              ⍝ Fixed width
+     1∧.=r:toWide fu                       ⍝ No delimiters
+     fw∧(d=1)∧2∧.=r:noDays toWide fd       ⍝ Fixed without days
+     fw∧(d=2)∧3∧.=r:hasDays toWide fd      ⍝ Fixed with days
+     z←toWide fu,fd,v
+     z[⍒+/¨'YMD'∘∊¨z]                      ⍝ Preference for more elements
  }

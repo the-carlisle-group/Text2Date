@@ -4,5 +4,11 @@
      Assert r≡0 0 0:
      r←'MMDDYY'f'123199999' '15' '100000'
      Assert r≡0 0 0:
+     r←'YDMMM'f'Jan 23, 1999' 'Dec 01, 2003' 'Jun 30, 2001'
+     Assert r≡0 0 0:
+     r←'DYMMM'f'Jan 23, 1999' 'Dec 01, 2003' 'Jun 30, 2001'
+     Assert r≡0 0 0:
+     r←'YM'f'Jan 23, 1999' 'Dec 01, 2003' 'Jun 30, 2001'
+     Assert r≡0 0 0:
      0
  }
