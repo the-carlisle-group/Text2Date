@@ -1,4 +1,10 @@
-# Text2Date Release 0.0.16                    
+# Text2Date Release 0.0.17                    
+1. Update README.md
+2. Update README.md
+3. Update README.md
+4. Fix issue #12
+
+# Text2Date Release 0.0.16 2023-02-17 14:06:12
 1. More improvements to InferFormat
 2. Update README.md
 3. Simplify handling of leading variable element in an undelimited fixed pattern
