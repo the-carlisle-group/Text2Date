@@ -104,7 +104,7 @@ For example:
 
 ## InferFormat
 
-In addition to the `Text2Date` function itselft, the API of this project includes the function `InferFormat`:
+In addition to the `Text2Date` function itself, the API of this project includes the function `InferFormat`:
 
 ~~~
       R←Inferformat X
@@ -116,8 +116,8 @@ R is a namespace containing:
 |Name|Value|
 |:-------------|:-------------|
 |`AllFormats`|a list of format strings that will convert one or more items in X to a valid date, ordered from most successful to least successful| 
-|`Absolute`|an integer vector corresponding to AllFormats with absolute count of valid conversions|
-|`Relative`|an integer vector corresponding to AllFormats with the relative count of valud conversions|
+|`Absolute`|an integer vector corresponding to `AllFormats` with absolute count of valid conversions|
+|`Relative`|an integer vector corresponding to `AllFormats` with the relative count of valud conversions|
 |`Ambiguous`|a boolean scaler indicating that the first two items in AllFormats yield an equal number valid converstions on the same items|
 |`Formats`|`AllFormats` where Relative > 0|
 |`PrimaryFormat`|the first item of `Formats`|
