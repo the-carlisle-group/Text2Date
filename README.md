@@ -102,6 +102,30 @@ For example:
 20640724 20781204 20020628
 ~~~
 
+## InferFormat
+
+In addition to the `Text2Date` function itselft, the API of this project includes the function `InferFormat`:
+
+~~~
+      R←Inferformat X
+~~~
+
+X is a vector of vectors or a simple character matrix, each element or each row a time string.
+R is a namespace containing:
+
+|Name|Value|
+|:-------------|:-------------|
+|`AllFormats`|a list of format strings that will convert one or more items in X to a valid date, ordered from most successful to least successful| 
+|`Absolute`|an integer vector corresponding to AllFormats with absolute count of valid conversions|
+|`Relative`|an integer vector corresponding to AllFormats with the relative count of valud conversions|
+|`Ambiguous`|a boolean scaler indicating that the first two items in AllFormats yield an equal number valid converstions on the same items|
+|`Formats`|`AllFormats` where Relative > 0|
+|`PrimaryFormat`|the first item of `Formats`|
+
+This function attempts to infer the format strings or strings what will successfully convert
+the items in X to a valid date. It only examines formats with year, month, and day elements.
+It does not handle hours, minutes and seconds.
+
 ## Distribution
 
 Text2Date is a Dado project that may be included as a dependency in the normal way.
