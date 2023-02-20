@@ -116,9 +116,9 @@ R is a namespace containing:
 |Name|Value|
 |:-------------|:-------------|
 |`AllFormats`|a list of format strings that will convert one or more items in X to a valid date, ordered from most successful to least successful| 
-|`Absolute`|an integer vector corresponding to `AllFormats` with absolute count of valid conversions|
-|`Relative`|an integer vector corresponding to `AllFormats` with the relative count of valud conversions|
-|`Ambiguous`|a boolean scaler indicating that the first two items in AllFormats yield an equal number valid converstions on the same items|
+|`Absolute`|an integer vector corresponding to `AllFormats` with the absolute count of valid conversions|
+|`Relative`|an integer vector corresponding to `AllFormats` with the relative count of valid conversions|
+|`Ambiguous`|a boolean scaler indicating that the first two items in AllFormats yield an equal number valid conversions on the same items|
 |`Formats`|`AllFormats` where Relative > 0|
 |`PrimaryFormat`|the first item of `Formats`|
 
@@ -133,5 +133,6 @@ However, the releases also contain a stand-alone namespace script **Text2Date.ap
 which may be copy/pasted or fixed into a project or workspace.  
 
 ## Further Reading
-Additional commentary on design and coding decisions can be found at the [Tool Of Thought](https://toolofthought.com) blog.
+Additional commentary on design and coding decisions can be found in [this post](https://toolofthought.com/posts/text-to-date)
+at the [Tool of Thought](https://toolofthought.com) blog.
 
