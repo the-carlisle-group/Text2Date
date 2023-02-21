@@ -3,20 +3,20 @@
      r←f'YMD'
      Assert r≡'':
      r←f'YMDs'
-     Assert r≡'Missing elements':
+     Assert r≡'Missing elements in pattern YMDs':
      r←f'MDh'
-     Assert r≡'Missing elements':
+     Assert r≡'Missing elements in pattern MDh':
      r←f'xyz'
-     Assert r≡'No elements provided':
+     Assert r≡'No elements provided in pattern xyz':
      r←f'YYMMDD-YYYY'
-     Assert r≡'Duplicate elements':
+     Assert r≡'Duplicate elements in pattern YYMMDD-YYYY':
      r←f'YMDD'
-     Assert r≡'Invalid element in variable-width pattern':
+     Assert r≡'Invalid (for variable-width) element in pattern YMDD':
      r←f'YYYYMDD'
-     Assert r≡'Invalid element in fixed-width pattern':
+     Assert r≡'Invalid (for fixed-width) element in pattern YYYYMDD':
      r←f'YYYYYMMDDD'
-     Assert r≡'Invalid element in pattern':
+     Assert r≡'Invalid element in pattern YYYYYMMDDD':
      r←f'MDDYY'
-     Assert r≡'Invalid element in fixed-width pattern':
+     Assert r≡'Invalid (for fixed-width) element in pattern MDDYY':
      0
  }

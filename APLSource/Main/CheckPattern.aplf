@@ -4,13 +4,14 @@
      ve←'MMYMDhms'/¨⍨4 3,6⍴1
      s←⍵⊆⍨+\2≠/' ',⍵
      p←s/⍨a∊⍨⊃¨s
-     0=≢p:'No elements provided'
-     ~∧/p∊fe,ve:'Invalid element in pattern'
+     t←' in pattern ',⍵
+     0=≢p:'No elements provided',t
+     ~∧/p∊fe,ve:'Invalid element',t
      e←⊃¨p
-     (⊢≢∧\)a∊e:'Missing elements'
-     e≢∪e:'Duplicate elements'
+     (⊢≢∧\)a∊e:'Missing elements',t
+     e≢∪e:'Duplicate elements',t
      f←∨/p∊'YY' 'YYYY'
-     f∧~∧/p∊fe:'Invalid element in fixed-width pattern'
-     (~f)∧~∧/p∊ve:'Invalid element in variable-width pattern'
+     f∧~∧/p∊fe:'Invalid (for fixed-width) element',t
+     (~f)∧~∧/p∊ve:'Invalid (for variable-width) element',t
      ''
  }

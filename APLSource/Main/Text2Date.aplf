@@ -1,10 +1,11 @@
  Text2Date←{
      ⍝ ⍵ ←→ Char mat of time strings
-     ⍝ ⍺ ←→ Format [Century Window] [Century Anchor Year]
+     ⍝ ⍺ ←→ Format(s) [Century Window] [Century Anchor Year]
      ⍝ ← ←→ ⎕DT time number type 60 or 0 for invalid
-     300+⍳100::ReSignal ⎕DMX
      ⍺←⊢
+     300+⍳100::ReSignal ⎕DMX
      (f w t m)←⍺ ErrorCheck ⍵
+     2=≡f:{⊃+/⍵×<\⍵≠0}({⍵ w t}¨f)∇¨⊂m
      k←+/'YMDhms'∊f
      Validate w t AddCentury k Default k Scale f Decode f Parse m
  }

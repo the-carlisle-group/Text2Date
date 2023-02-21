@@ -1,0 +1,5 @@
+ ProcessLeftArgument←{
+     w t←50,⊃⎕TS
+     80=⎕DR↑⍵:⍵ w t
+     3↑⍵,t
+ }
