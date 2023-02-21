@@ -9,9 +9,11 @@ The Text2Date function converts time strings to time numbers:
 ~~~
 
 X is a vector of vectors or a simple character matrix, each element or each row a time string.
-Y is a formatting pattern. Z is an optional fixed century or sliding century window (default is 50). 
+Y is one or more formatting patterns. Z is an optional fixed century or sliding century window (default is 50). 
 T is the anchor year for the sliding century window (default is `⊃⎕TS`).
 R is a type 60 time number or 0 for an invalid conversion.
+
+If Z is not provided, then Y may be unenclosed.
 
 For example:
 
