@@ -6,6 +6,7 @@
      300+⍳100::ReSignal ⎕DMX
      (f w t m)←⍺ ErrorCheck ⍵
      2=≡f:{⊃+/⍵×<\⍵≠0}({⍵ w t}¨f)∇¨⊂m
+     'Excel'≡5↑f:f Excel2Date m
      k←+/'YMDhms'∊f
      Validate w t AddCentury k Default k Scale f Decode f Parse m
  }

@@ -7,6 +7,8 @@
      e←~r∊⊂''
      ∨/e:11 Signal⊃e/r
      e←(1⊃⍴m)<≢¨⊆f
+     e←e∧~∧/¨(⊆f)∊¨⊂'YMDhms'
+     e←e∧~(⊆f)∊'Excel'∘,¨'' '1900' '1904'
      ∨/e:11 Signal'The format pattern ',(⊃e/f),' is wider than the right argument'
      f w t m
  }

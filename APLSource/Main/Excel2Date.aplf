@@ -1,0 +1,7 @@
+ Excel2Date←{
+     ⍺←'Excel1900'
+     n←ToNum ⍵
+     b←1 765607(0=⍸)n
+     c←40+⍺≡'Excel1904'
+     b×c 60 ⎕DT b×n
+ }
