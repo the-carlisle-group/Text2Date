@@ -6,14 +6,14 @@
      ok←a{e::0 ⋄ 1⊣⍺ ErrorCheck ⍵}¨⊂⍵
      f←ok/a
      r←f{⍺ Text2Date ⍵}¨⊂⍵
+     r←r×19000000 22000000∘(0=⍸)¨r
      b←0≠r
      n←+/¨b
      g←⍒n
      k←(+/¨<\b[g])[⍋g]
      m←(↑f n k)[;g]
-     q←(m[1;]>0)∧~(m[2;]=0)∧1∊¨'MMM'∘⍷¨m[0;]
      s←⎕NS''
-     s.(AllFormats Absolute Relative)←↓q/m
+     s.(AllFormats Absolute Relative)←(m[1;]>0)∘⌿¨↓m
      s.Ambiguous←(=/2↑s.Absolute)∧=/≢¨2↑s.AllFormats
      s.Formats←s.AllFormats/⍨s.Relative>0
      s.PrimaryFormat←⊃s.Formats

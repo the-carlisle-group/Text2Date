@@ -1,14 +1,17 @@
  ErrorCheck←{
      0=⎕NC'⍺':2 Signal'The function requires a left argument'
      m←↑⍵
-     80≠⎕DR m:11 Signal'The right argument must be a simple char mat'
+     c←2=≢⍴m      ⍝ Is char data
+     n←1=≢⍴m      ⍝ Is Numeric datea
+     ⍝ 80≠⎕DR m:11 Signal'The right argument must be a simple char mat or simple numeric vector'
      f w t←ProcessLeftArgument ⍺
-     r←CheckPattern¨⊆f
+     r←CheckPattern¨f
      e←~r∊⊂''
      ∨/e:11 Signal⊃e/r
-     e←(1⊃⍴m)<≢¨⊆f
-     e←e∧~∧/¨(⊆f)∊¨⊂'YMDhms'
-     e←e∧~(⊆f)∊'Excel'∘,¨'' '1900' '1904'
+     u←(∧/¨f∊¨⊂'YMDhms')∨(⎕C f)∊'excel'∘,¨'' '1900' '1904'
+     n∧~∧/u:11 Signal'Numeric data requires undelimited patterns.'
+     e←(~u)∧(1⊃2↑⍴m)<≢¨f
      ∨/e:11 Signal'The format pattern ',(⊃e/f),' is wider than the right argument'
+     f←{1=≢⍵:⊃⍵ ⋄ ⍵}f
      f w t m
  }

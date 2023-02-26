@@ -1,5 +1,5 @@
  CheckPattern←{
-     (⊂⍵)∊'Excel'∘,¨'' '1900' '1904':''
+     (⊂⎕C ⍵)∊'excel'∘,¨'' '1900' '1904':''
      a←'YMDhms'
      fe←'YMYMDhms'/¨⍨4 3,6⍴2
      ve←'MMYMDhms'/¨⍨4 3,6⍴1

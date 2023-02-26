@@ -1,0 +1,8 @@
+ TestNumericData←{
+     f←##.Main.Text2Date
+     r←'MMDDYY'f 123199 10100
+     Assert r≡19991231 20000101:
+     r←'DDMMYYYY'f 1032023 28102024
+     Assert r≡20230301 20241028:
+     0
+ }

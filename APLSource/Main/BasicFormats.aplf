@@ -16,7 +16,7 @@
      r←+/2</b                              ⍝ Digit runs
      d←+/~b[0;]                            ⍝ Number of delims
      fw←1=≢∪b                              ⍝ Fixed width
-     1∧.=r:toWide fu                       ⍝ No delimiters
+     1∧.≥r:fu,⊂'excel' ⍝ toWide fu         ⍝ No delimiters
      fw∧(d=1)∧2∧.=r:noDays toWide fd       ⍝ Fixed without days
      fw∧(d=2)∧3∧.=r:hasDays toWide fd      ⍝ Fixed with days
      z←toWide fu,fd,v

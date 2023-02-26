@@ -4,11 +4,10 @@
      ⍝ ← ←→ Time matrix
      f m←⍺ FixedMMM ⍵
      e←'YMDhms'
+     b←f∊e
+     n←b ToNum m
+     g←n×(~∧/b)∨n<10*≢f
      c←1∊'YYYY'⍷f
      k←+/e∊f
-     r←(k⍴100)*1+c∧'Y'=∪f∩e
-     u←∧/f∊e
-     b←u∨(1⊃⍴m)↑f∊e
-     n←ToNum m/⍨b
-     r⊤n×(~u)∨n<10*≢f
+     g⊤⍨(k⍴100)*1+c∧'Y'=∪f∩e
  }

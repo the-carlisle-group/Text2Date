@@ -30,5 +30,11 @@
      Assert r.PrimaryFormat≡'MM/DD/YY':
      r←f'Jan 23, 1999' '1999/12/31' 'Dec 1, 2003' '2022/01/01' 'Jun 30, 2001'
      Assert r.Formats≡'MMMDY' 'YYYY/MM/DD':
+     r←f'10915' '12115' '11199'
+     Assert r.PrimaryFormat≡'MMDDYY':
+     r←f'10915' '10115' '11199'
+     Assert r.PrimaryFormat≡'MMDDYY':
+     r←f'12012002' '1312003' '11012003' '9012004'
+     Assert r.PrimaryFormat≡'MMDDYYYY':
      0
  }
