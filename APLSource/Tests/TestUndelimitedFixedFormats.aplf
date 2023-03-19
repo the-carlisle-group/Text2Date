@@ -1,6 +1,6 @@
  TestUndelimitedFixedFormats←{
      f←##.Main.Text2Date
      r←'MMDDYY'f'43022' '123199' '   031724'
-     Assert r≡20220430 19991231 20240317
+     Assert r≡20220430 19991231 20240317:
      0
  }
