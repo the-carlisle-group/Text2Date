@@ -1,0 +1,8 @@
+ TestComplexNumbers←{
+     f←##.Main.Text2Date
+     r←'YY/MMM/DD'f'1JAN2008' '04FEB2009' '31MAR2007'
+     Assert r≡0 0 0:
+     r←'YY/MMM/DD'f'1EEE2008' '04FEB2009' '31MAR2007'
+     Assert r≡0 0 0:
+     0
+ }
