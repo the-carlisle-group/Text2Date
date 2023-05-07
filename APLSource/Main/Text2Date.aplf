@@ -8,5 +8,5 @@
      2=≡f:{⊃+/⍵×<\⍵≠0}({⍵ w t}¨f)∇¨⊂m
      'excel'≡⎕C 5↑f:f Excel2Date m
      k←+/'YMDhms'∊f
-     Validate w t AddCentury k Default k Scale f Decode f Parse m
+     Validate f w t AddCentury k Default k Scale f Decode f Parse m
  }

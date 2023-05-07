@@ -2,7 +2,8 @@
      ⍝ ⍺ ←→ Century Window, Century Anchor Year
      ⍝ ⍵ ←→Decimal time number 60
      ⍝ ← ←→ ⍵ with added century
-     w t←⍺
+     f w t←⍺
+     1∊'YYYY'⍷f:⍵
      y←⌊⍵÷10*4
      b←y<100
      ~∨/b:⍵
