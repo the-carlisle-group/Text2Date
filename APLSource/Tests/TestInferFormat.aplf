@@ -36,5 +36,7 @@
      Assert r.PrimaryFormat≡'MMDDYY':
      r←f'12012002' '1312003' '11012003' '9012004'
      Assert r.PrimaryFormat≡'MMDDYYYY':
+     r←f'20000701' '20000801' '20000901' '20001001' '20001101' '20001201'
+     Assert r.AllFormats≡'YYYYMMDD' 'YYYYDDMM':
      0
  }
