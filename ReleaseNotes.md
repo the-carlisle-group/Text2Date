@@ -1,4 +1,16 @@
-# Text2Date Release 0.0.17                    
+# Text2Date Release 0.0.18                    
+1. Implement first of month bias in InferFormat (Issue #16)
+2. Fix issue #15
+3. Enhance false positive test
+4. Fix issue #14
+5. Fix test
+6. Add direct support for undelimited numeric data
+7. Add Excel formats (Issue #2)
+8. Update README.md
+9. Add multi-format support (Issue #7)
+10. Improve InferFormat function
+
+# Text2Date Release 0.0.17 2023-02-20 10:56:52
 1. Update README.md
 2. Update README.md
 3. Update README.md
