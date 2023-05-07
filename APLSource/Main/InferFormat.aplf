@@ -1,6 +1,8 @@
  InferFormat←{
+     ⍝ ⍺ ←→ First Day of Month Bias
      ⍝ ⍵ ←→ Matrix of time strings
      ⍝ ← ←→ Info
+     ⍺←0
      a←BasicFormats ⍵
      e←300+⍳100
      ok←a{e::0 ⋄ 1⊣⍺ ErrorCheck ⍵}¨⊂⍵
@@ -9,6 +11,9 @@
      r←r×19000000 22000000∘(0=⍸)¨r
      b←0≠r
      n←+/¨b
+     d←(∨/¨b)∧∧/¨1=100⊤¨b/¨r
+     j←⍺∧(n=⌈/n)∧(~d)∧∨/d
+     n b f←(~j)∘/¨n b f
      g←⍒n
      k←(+/¨<\b[g])[⍋g]
      m←(↑f n k)[;g]
