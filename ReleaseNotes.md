@@ -1,4 +1,8 @@
-# Text2Date Release 0.0.18                    
+# Text2Date Release 0.0.19                    
+1. Cleanup
+2. Infer
+
+# Text2Date Release 0.0.18 2023-05-07 07:47:45
 1. Implement first of month bias in InferFormat (Issue #16)
 2. Fix issue #15
 3. Enhance false positive test
