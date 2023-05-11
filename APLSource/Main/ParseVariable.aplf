@@ -2,7 +2,7 @@
      ⍝ ⍺ ←→ Variable width format
      ⍝ ⍵ ←→ Character matrix of time strings
      ⍝ ← ←→ Time matrix
-     m←' ',⍺ VariableMMM ⍵
+     g m←⍺ VariableMMM ⍵
      f←∪⍺∩'YMDhms'
      b←m∊⎕D
      r←+/2</b
@@ -16,5 +16,5 @@
      v[⍸~,b]←' '
      t←⍉(⌽k,≢m)⍴1⊃⎕VFI v
      h←10000 12 31 23 59 59
-     t×t(≤⍤¯1)h['YMDhms'⍳f]
+     g(×⍤1)t×t(≤⍤¯1)h['YMDhms'⍳f]
  }

@@ -1,10 +1,14 @@
  VariableMMM←{
      ⍝ Convert 'MMM' to ' MM'
-     ~1∊'MMM'⍷⍺:⍵
+     ⍝ ← ←→ (1|0 if actual month name converted) (Data)
+     ~1∊'MMM'⍷⍺:1(' ',⍵)
      n←↓MonthNames''
-     v←⎕C,⍵
-     b←n⍷¨⊂v
+     m←⎕C ⍵
+     b←n⍷¨⊂m
+     c←⊃∨/∨/¨b
+     b←,¨b
+     v←,m
      j←{⍵,⍵+1}∊⍸¨b
      v[j]←,⍉'I2'⎕FMT(+/¨b)/1+⍳12
-     v⍴⍨⍴⍵
+     c(' ',v⍴⍨⍴⍵)
  }
