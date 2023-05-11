@@ -1,16 +1,20 @@
  BasicFormats←{
+     ⍝ ⍵ ←→ Time Strings
+     ⍝ ← ←→ Potential appropriate format strngs
      m←↑⍵
      w←1⊃⍴m
      toWide←w∘{⍵/⍨⍺≥≢¨⍵}
      noDays←{⍵/⍨~'D'∊¨⍵}
      hasDays←{⍵/⍨'D'∊¨⍵}
      i←⊂¨∪⍋¨,⍳3⍴3
-     fp←,i∘.⌷(4 3 2)(4 2 2)(2 3 2)2/¨¨⊂'YMD'
+     sn←1∊∊(↓MonthNames'')⍷¨⊂⎕C m     ⍝ Some month names
+     fp←,i∘.⌷((sn 1 sn 1)/(4 3 2)(4 2 2)(2 3 2)2)/¨¨⊂'YMD'
+     ⍝ fp←,i∘.⌷(4 3 2)(4 2 2)(2 3 2)2/¨¨⊂'YMD'
      fp←fp,∪fp~¨⊂⊂'DD'
      fd←1↓¨∊¨'/',¨¨fp
      fu←{⍵/⍨~∨/'MMM'⍷↑⍵}∊¨fp
      v←i∘.⌷⊂'YMD'
-     v,←(1+2×v='M')/¨v
+     v,←sn/(1+2×v='M')/¨v
      v,←∪v~¨'D'
      b←⎕D∊⍨' ',m
      r←+/2</b                              ⍝ Digit runs
@@ -20,5 +24,6 @@
      fw∧(d=1)∧2∧.=r:noDays toWide fd       ⍝ Fixed without days
      fw∧(d=2)∧3∧.=r:hasDays toWide fd      ⍝ Fixed with days
      z←toWide fu,fd,v
-     z[⍒+/¨'YMD'∘∊¨z]                      ⍝ Preference for more elements
+     z←z[⍒≢¨z]                             ⍝ Preference for longer format.
+     z[⍒+/¨'YMD'∘∊¨z]                    ⍝ Preference for more elements
  }

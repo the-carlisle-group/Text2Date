@@ -12,5 +12,6 @@
      Assert r≡0 0 0:
      r←'DDYYYYMM'f'20000701' '20000801' '20000901'
      Assert r≡0 0 0:
+     r←'MMMDY'f 3⍴⊂'12/Jan/2013'
      0
  }

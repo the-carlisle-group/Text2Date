@@ -39,5 +39,7 @@
      r←1 f'20000701' '20000801' '20000901' '20001001' '20001101' '20001201'
      Assert~r.Ambiguous:
      Assert r.PrimaryFormat≡'YYYYMMDD':
+     r←f 3⍴⊂'31/12/2013'
+     Assert r.PrimaryFormat≡'DD/MM/YYYY':
      0
  }
