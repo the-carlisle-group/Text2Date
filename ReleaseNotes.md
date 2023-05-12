@@ -1,4 +1,6 @@
-# Text2Date Release 0.0.19                    
+# Text2Date Release 0.0.20                    
+
+# Text2Date Release 0.0.19 2023-05-11 07:43:57
 1. Cleanup
 2. Infer
 
