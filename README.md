@@ -1,7 +1,5 @@
 # Text2Date
 
-> PRE-RELEASE! Do not use in production until version 1.0
-
 The Text2Date function converts time strings to time numbers:
 
 ~~~
