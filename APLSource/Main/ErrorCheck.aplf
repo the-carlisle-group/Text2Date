@@ -10,8 +10,6 @@
      ∨/e:11 Signal⊃e/r
      u←(∧/¨f∊¨⊂'YMDhms')∨(⎕C f)∊'excel'∘,¨'' '1900' '1904'
      n∧~∧/u:11 Signal'Numeric data requires undelimited patterns.'
-     e←(~u)∧(1⊃2↑⍴m)<≢¨f
-     ∨/e:11 Signal'The format pattern ',(⊃e/f),' is wider than the right argument'
      f←{1=≢⍵:⊃⍵ ⋄ ⍵}f
      f w t m
  }
