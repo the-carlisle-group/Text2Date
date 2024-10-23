@@ -1,4 +1,9 @@
-# Text2Date Release 0.0.20                    
+# Text2Date Release 0.0.21                    
+1. Cleanup
+2. Fix issue #19
+3. Update README.md
+
+# Text2Date Release 0.0.20 2023-05-12 10:01:15
 
 # Text2Date Release 0.0.19 2023-05-11 07:43:57
 1. Cleanup
