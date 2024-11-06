@@ -11,15 +11,15 @@
      fp←,i∘.⌷((4⍴sn 1)/(4 3 2)(4 2 2)(2 3 2)2)/¨¨⊂'YMD'
      fp←fp,∪fp~¨⊂⊂'DD'
      fd←1↓¨∊¨'/',¨¨fp
-     fu←{⍵/⍨~∨/'MMM'⍷↑⍵}∊¨fp
+     fu←(⊂'excel'),⍨{⍵/⍨~∨/'MMM'⍷↑⍵}∊¨fp
      v←i∘.⌷⊂'YMD'
      v,←sn/(1+2×v='M')/¨v
      v,←∪v~¨'D'
      b←⎕D∊⍨' ',m
      r←+/2</b                              ⍝ Digit runs
-     d←+/~b[0;]                            ⍝ Number of delims
+     d←+/~b[0;]                            ⍝ Number of delims - This does not look right maybe d←r[0]-1 ⍝
      fw←1=≢∪b                              ⍝ Fixed width
-     1∧.≥r:fu,⊂'excel' ⍝ toWide fu         ⍝ No delimiters
+     1∧.≥r:fu                              ⍝ No delimiters
      fw∧(d=1)∧2∧.=r:noDays toWide fd       ⍝ Fixed without days
      fw∧(d=2)∧3∧.=r:hasDays toWide fd      ⍝ Fixed with days
      z←toWide fu,fd,v

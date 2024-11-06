@@ -1,5 +1,11 @@
  TestInferFormat←{
      f←##.Main.InferFormat
+     r←f'35000' '34999' '37111'
+     Assert r.PrimaryFormat≡'excel':
+     r←f'35000' '34999' '37111' 'blah blah blah'
+     Assert r.PrimaryFormat≡'excel':
+     r←f'35000' '34999' '37111' '00/00/0000'
+     Assert r.PrimaryFormat≡'excel':
      r←f'12/31/99' '01/01/00' '09/10/23'
      Assert r.PrimaryFormat≡'MM/DD/YY':
      r←f'12/31/1999' '01/01/2000' '09/10/2023' '1/1/99' '12/31/00'
