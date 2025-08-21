@@ -1,4 +1,7 @@
-# Text2Date Release 0.0.22                    
+# Text2Date Release 0.0.23                    
+1. Fix issue #20
+
+# Text2Date Release 0.0.22 2025-01-07 14:42:26
 1. Tweak InferFormat for better results with excel serial numbers
 
 # Text2Date Release 0.0.21 2024-10-23 07:24:27
