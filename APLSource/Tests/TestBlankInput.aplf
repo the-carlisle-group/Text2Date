@@ -1,0 +1,12 @@
+ TestBlankInput←{
+     f←##.Main.Text2Date
+     r←'YYYYMMDD'f 5⍴⊂8⍴' '
+     Assert r≡5⍴0:
+     r←'YYYYMMDD'f,⊂8⍴' '
+     Assert r≡,0:
+     r←'YYYYMMDD'f 1 8⍴' '
+     Assert r≡,0:
+     r←'YYYYMMDD'f 0 8⍴' '
+     Assert r≡⍬:
+     0
+ }

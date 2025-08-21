@@ -3,6 +3,6 @@
      ⍺←1
      b←(∧/⍺)⊃(⍺↑⍨1⊃⍴⍵)1
      d←⎕UCS 181               ⍝ Unlikely type 80 delimiter
-     n←1⊃d ⎕VFI 1↓,d,b/⍵      ⍝ To numeric
+     n←(≢⍵)↑1⊃d ⎕VFI 1↓,d,b/⍵ ⍝ To numeric (over take for all blank 1-row input ensure ,0 result )
      n×n=+n                   ⍝ Zero out complex
  }
